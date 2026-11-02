@@ -2,19 +2,19 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Gym">
-<meta name="theme-color" content="#eef0f4"><link rel="apple-touch-icon" href="icon.png"><link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f4f7ff"><link rel="apple-touch-icon" href="icon.png"><link rel="manifest" href="manifest.webmanifest">
 <title>Gym Log</title>
 <style>
-:root{--bg:#eef0f4;--c:#fff;--t:#101521;--m:#667085;--a:#2f4bff;--at:#e9edff;--g:#12a150;--gt:#e7f6ed;--w:#fff4e0;--wt:#8a5a00;--l:#dfe3ea}
+:root{--bg:#f4f7ff;--c:#fff;--t:#0d1730;--m:#7a869f;--a:#2f4bff;--at:#eaf0ff;--g:#12a150;--gt:#e7f6ed;--w:#fff4e0;--wt:#8a5a00;--l:#e3e9f5;--sh:0 6px 18px rgba(52,84,160,.09)}
 *{box-sizing:border-box;margin:0}html,body{height:100%}
 body{background:var(--bg);color:var(--t);font:16px/1.5 -apple-system,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
 #app{max-width:430px;margin:auto;height:100%;display:flex;flex-direction:column}
 main{flex:1;overflow:auto;padding:calc(env(safe-area-inset-top) + 16px) 16px 20px}
 nav{display:flex;background:var(--c);border-top:1px solid var(--l);padding-bottom:env(safe-area-inset-bottom)}
-nav button{flex:1;padding:8px 0 10px;background:none;border:0;color:var(--m);font:inherit;font-size:12px}nav b{display:block;font-size:20px;line-height:1.3}nav .on{color:var(--a);font-weight:700}
+nav button{flex:1;padding:10px 0 8px;background:none;border:0;color:var(--m);font:inherit;font-size:11px}nav svg{display:block;margin:0 auto 2px;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}nav .on{color:var(--t);font-weight:700}nav .on svg{fill:var(--t);fill-opacity:.12;stroke-width:2.2}
 header{display:flex;align-items:center;gap:10px;margin-bottom:14px}header h1{flex:1;font-size:26px;font-weight:800;letter-spacing:-.3px}header span{color:var(--m);font-weight:700}
 header button{background:var(--c);border:1px solid var(--l);color:var(--t);font-size:22px;width:38px;height:38px;border-radius:12px}
-.card{background:var(--c);border-radius:18px;padding:14px 16px;margin:10px 0;border:1.5px solid var(--l)}
+.card{background:var(--c);border-radius:18px;padding:14px 16px;margin:10px 0;border:1.5px solid transparent;box-shadow:var(--sh)}
 .card small{color:var(--m);display:block}.card p{color:var(--m);font-size:14px;direction:ltr;text-align:right}
 .card em,.opt em{font-style:normal;font-size:13px;color:var(--a);font-weight:600}
 .card.ok{border-color:var(--g);background:var(--gt)}.ok em{color:var(--g)}.nx{border-color:var(--a);background:var(--at)}
@@ -28,29 +28,35 @@ input,select{width:100%;padding:12px;margin-top:4px;border-radius:12px;border:1.
 .pri{background:var(--a);border-color:var(--a);color:#fff;font-weight:700}
 .hint{background:var(--w);color:var(--wt);border-radius:12px;padding:10px 12px;margin:8px 0;font-size:14px}
 .row{font-size:14px;color:var(--m);direction:ltr;text-align:right;padding:3px 0}
+.ph{height:170px;border-radius:20px;background:#e8eefc center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:var(--m);margin:8px 0}
+.gs{display:block;text-align:center;color:var(--a);font-size:13px;margin-bottom:6px}
+.sets{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:10px}.sets label{background:var(--c);border-radius:16px;padding:10px 8px;margin:6px 0;text-align:center;box-shadow:var(--sh)}
+.sets input{border:0;background:var(--bg);padding:10px 4px;font-size:18px;font-weight:700}
+.lr{display:flex;justify-content:space-between;align-items:center;gap:8px}.lr>small:last-child{text-align:left;white-space:nowrap}
 </style></head><body><div id="app"></div>
 <script>
 const $=s=>document.querySelector(s),D=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const fd=d=>new Date(d+'T12:00:00').toLocaleDateString('fa-IR-u-ca-gregory',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 const A={uc:'سینه بالا',um:'سینه میانی',ul:'سینه پایین',lat:'زیربغل',row:'پشت میانی/قایقی',trap:'کول و ذوزنقه',lb:'فیله کمر',sf:'سرشانه جلو',sm:'سرشانه میانی',sr:'سرشانه پشت',tri:'پشت‌بازو',bi:'جلوبازو',ff:'ساعد جلو',fb:'ساعد پشت',abs:'شکم',obl:'پهلو',nf:'گردن جلو',nb:'گردن پشت',quad:'چهارسر ران',ham:'همسترینگ',glu:'باسن',add:'داخل ران',abd:'خارج ران',calf:'ساق پا',tib:'جلو ساق'};
 const UP=['uc','um','ul','lat','row','trap','lb','sf','sm','sr','tri','bi','ff','fb','abs','obl','nf','nb'],LO=['quad','ham','glu','add','abd','calf','tib'];
 // id:[name, area(s), mode(3|1|f), alternatives]
 const E={inc:['Incline chest press','uc'],bar:['Decline barbell press','ul',,['da']],da:['Dip assist','ul'],fly:['Pectoral fly','um'],lat:['Lat pulldown','lat',,['chin']],chin:['Chin assist','lat'],
 lr:['Cable lateral raise','sm'],sp:['Shoulder press','sf'],tp:['Cable triceps pulldown','tri'],bc:['Cable biceps curl','bi'],row:['Seated row','row'],sh:['Cable shrugs','trap'],
-hy:['Hyper extension','lb','1'],cp:['Converging chest press','uc,um'],ch:['Converging chest press halter','um'],rd:['Rear delt fly','sr'],to:['Cable overhead triceps extension','tri'],
+hy:['Hyper extension','lb','1'],cp:['Converging chest press','uc,um'],rd:['Rear delt fly','sr'],to:['Cable overhead triceps extension','tri'],
 fo:['ساعد با کابل (جلو و پشت)','ff,fb','f'],cr:['Abdominal crunch','abs'],nf:['Neck front','nf'],hk:['Hack squat','quad',,['lp']],lp:['Leg press','quad'],le:['Leg extension','quad'],
 gt:['Glute trainer','glu'],pl:['Prone leg curl','ham'],sl:['Seated leg curl','ham'],ad:['Hip adductor','add'],sc:['Seated calf raise','calf'],hl:['Horizontal leg press','quad'],
 gl:['Glute','glu'],ab:['Hip abductor','abd'],ti:['Tibialis raise','tib'],wc:['Cable woodchopper','obl'],nb:['Neck back','nb'],
 vb:['Vertical bench press','um'],cf:['Cable fly (high to low)','ul'],sar:['Single-arm cable row','row'],sap:['Single-arm cable pulldown','lat'],pt:['Cable pull-through','lb'],
 csp:['Converging shoulder press','sf'],lrm:['Lateral raise machine','sm'],fp:['Cable face pull','sr'],rcf:['Reverse cable fly','sr'],hc:['Cable rope hammer curl','bi'],sac:['Single-arm cable curl','bi'],
 ccr:['Standing cable crunch','abs'],gk:['Glute kickback machine','glu'],ht:['Hip thrust machine','glu'],tw:['Tibialis raise (wall)','tib'],scr:['Standing calf raise (hack machine)','calf']};
-const P={ua:['بالاتنه A',['inc','bar','fly','lat','lr','sp','tp','bc']],ub:['بالاتنه B',['row','sh','hy','cp','ch','rd','bc','to','fo']],
+const P={ua:['بالاتنه A',['inc','bar','fly','lat','lr','sp','tp','bc']],ub:['بالاتنه B',['row','sh','hy','cp','rd','bc','to','fo']],
 la:['پایین‌تنه A',['hk','le','gt','pl','sl','ad','sc','cr','nf']],lb:['پایین‌تنه B',['sl','hl','gl','ab','ti','wc','nb']]};
 // starting data: weights, liked(1/0), reps of last set if not liked
 const S={inc:['23+5,29,29+5',1],fly:['25,32,39',1],lat:['39,39+2.3,45',1],lr:['2.3,2.3,4.5',0,4],cr:['45,45+2.3,50',1],nf:['5,5,7.5',1],row:['29,36,43',1],sh:['36,38.3,40.5',1],
-cp:['27.2,32,33.3',1],hy:['16',1],fo:['20.3,22.5,24.8,11.3,13.5,15.8',1],rd:['25,32,39',0,8],tp:['14,18,23',1],bc:['11.3,13.5,15.8',1],wc:['6.8,9,11.3',1],ch:['30,35,40',1],nb:['5,5,7.5',1],
+cp:['27.2,32,33.3',1],hy:['16',1],fo:['20.3,22.5,24.8,11.3,13.5,15.8',1],rd:['25,32,39',0,8],tp:['14,18,23',1],bc:['11.3,13.5,15.8',1],wc:['6.8,9,11.3',1],bar:['30,35,40',1],nb:['5,5,7.5',1],
 lp:['60,70,80',1],le:['35,40,45',1],gt:['15,17.5,20',1],ad:['23,29,36',1],pl:['36,41,45',1],sc:['20,30,40',1],hk:['40,50,60',1],sl:['40,45,50',1],gl:['27,32,36',1],hl:['45,52,59',1],ab:['36,43,50',1]};
 const seed=()=>{const L={};for(const k in S){const[w,ok,r]=S[k];L[k]=[{d:'2026-10-25',p:'',w:w.split(','),ok:!!ok,r:r||null}]}return{logs:L,cx:{},add:{},bk:''}};
-function load(){try{const x=JSON.parse(localStorage.getItem('gymlog'));if(x&&x.logs)return x}catch(e){}return seed()}
+function load(){try{const x=JSON.parse(localStorage.getItem('gymlog'));if(x&&x.logs){if(x.logs.ch){x.logs.bar=(x.logs.bar||[]).concat(x.logs.ch.map(e=>{const c={...e};delete c.s;return c})).sort((a,b)=>a.d<b.d?-1:1);delete x.logs.ch;localStorage.setItem('gymlog',JSON.stringify(x))}return x}}catch(e){}return seed()}
 let db=load(),v={s:'home'},op=-1;
 const save=()=>{try{localStorage.setItem('gymlog',JSON.stringify(db))}catch(e){}};
 const X=id=>E[id]||db.cx[id],md=id=>X(id)[2]||'3',lst=id=>(db.logs[id]||[]).slice(-1)[0],ar=e=>e[1].split(',').map(k=>A[k]).join(' / '),
@@ -63,7 +69,7 @@ const hd=(t,b,x)=>`<header>${b?`<button onclick="go('${b}','${v.k}')">›</butto
 function home(){const all=[].concat(...Object.values(db.logs)).filter(e=>e.p).sort((a,b)=>a.d<b.d?1:-1),order=['ua','la','ub','lb'],nx=order[(order.indexOf(all[0]&&all[0].p)+1)%4],
 dd=db.bk?(Date.parse(D())-Date.parse(db.bk))/864e5:99;
 return hd('برنامه تمرین')+(dd>14?`<div class="hint" onclick="go('set')">بیشتر از دو هفته از آخرین پشتیبان‌گیری گذشته. برای گرفتن پشتیبان اینجا بزن.</div>`:'')+
-order.map(k=>{const l=all.find(e=>e.p==k),n=ids(k).filter((_,j)=>sd(k,j)).length;return`<div class="card ${k==nx?'nx':''}" onclick="go('day','${k}')"><b>${P[k][0]}</b>${k==nx?' <em>نوبت امروز</em>':''}<small>${ids(k).length} حرکت · آخرین بار: ${l?l.d:'—'}${n?' · امروز '+n+' انجام شد':''}</small></div>`}).join('')}
+order.map(k=>{const l=all.find(e=>e.p==k),n=ids(k).filter((_,j)=>sd(k,j)).length;return`<div class="card ${k==nx?'nx':''}" onclick="go('day','${k}')"><b>${P[k][0]}</b>${k==nx?' <em>نوبت امروز</em>':''}<small>${ids(k).length} حرکت · آخرین بار: ${l?fd(l.d):'—'}${n?' · امروز '+n+' انجام شد':''}</small></div>`}).join('')}
 const sd=(k,n)=>{for(const i in db.logs)if(db.logs[i].some(e=>e.d==D()&&e.p==k&&e.s===n))return i;return null};
 const tg=n=>{op=op==n?-1:n;render(1)};
 const cand=id=>{const s=X(id)[1].split(',');return Object.keys(E).concat(Object.keys(db.cx)).filter(i=>X(i)[1].split(',').some(a=>s.includes(a)))};
@@ -72,17 +78,17 @@ return hd(P[k][0],'home',c+'/'+a.length)+`<div class="bar"><i style="width:${c/a
 return`<div class="card ${d?'ok':''}"><div class="sh" onclick="tg(${n})"><div><b>${ar(e)}</b><small>${d?'✓ '+X(d)[0]:'پیشنهاد: '+e[0]}</small></div><span>${op==n?'▴':'▾'}</span></div>`+
 (op==n?cand(id).sort((x,y)=>(y==id)-(x==id)).map(i=>`<div class="opt ${stat(i)[1]=='ok'?'dim':''}" onclick="go('ex','${k}','${i}',${n})"><span>${X(i)[0]}${i==id?' ⭐':''}</span><em>${stat(i)[0]}</em></div>`).join(''):'')+`</div>`}).join('')+`<button class="btn" onclick="go('add','${k}')">+ حرکت جدید</button>`}
 function exs(k,id,n){const e=X(id),l=lst(id),t=(db.logs[id]||[]).find(x=>x.d==D()),b=t||l,hist=(db.logs[id]||[]).slice(-5).reverse();
-return hd(e[0],'day')+`<small style="color:var(--m)">${ar(e)}</small>`+(l?`<div class="hint">${l.ok?'دفعه قبل ۱۰ تکرار کامل شد 👍 — این بار وزنه رو سنگین‌تر کن':'دفعه قبل ست آخر '+(l.r??'?')+' تکرار زدی — همین وزنه‌ها رو ادامه بده'}</div>`:'')+
-LB[md(id)].map((x,j)=>`<label>${x}<input id="w${j}" value="${b?b.w[j]??'':''}"></label>`).join('')+
+return hd(e[0],v.k?'day':'lib')+`<small style="color:var(--m)">${ar(e)}</small><div id="ph" class="ph" onclick="$('#pf').click()"><span>📷 افزودن عکس دستگاه</span></div><input id="pf" type="file" accept="image/*" hidden onchange="si('${id}',this.files[0])"><a class="gs" target="_blank" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(e[0]+' exercise')}">جستجوی تصویر در گوگل</a>`+(l?`<div class="hint">${l.ok?'دفعه قبل ۱۰ تکرار کامل شد 👍 — این بار وزنه رو سنگین‌تر کن':'دفعه قبل ست آخر '+(l.r??'?')+' تکرار زدی — همین وزنه‌ها رو ادامه بده'}</div>`:'')+
+`<div class="sets" style="--n:${Math.min(3,LB[md(id)].length)}">`+LB[md(id)].map((x,j)=>`<label>${x}<input id="w${j}" value="${b?b.w[j]??'':''}"></label>`).join('')+'</div>'+
 `<div class="tg"><label><input type="radio" name="ok" value="1" ${t&&t.ok?'checked':''}>👍 ۱۰ تکرار کامل شد</label><label><input type="radio" name="ok" value="0" ${t&&!t.ok?'checked':''}>ناقص</label></div>
 <label>تعداد تکرار ست آخر (اگه ناقص بود)<input id="r" type="number" inputmode="numeric" value="${t&&t.r||''}"></label>
 <button class="btn pri" onclick="sv('${k}','${id}',${n})">ذخیره</button>`+
-(hist.length?`<label>سابقه</label>`+hist.map(h=>`<div class="row">${h.d} · ${fmt(id,h)} · ${h.ok?'👍':'−'+(h.r??'?')}</div>`).join(''):'')}
+(hist.length?`<label>سابقه</label>`+hist.map(h=>`<div class="row">${fd(h.d)} · ${fmt(id,h)} · ${h.ok?'👍':'−'+(h.r??'?')}</div>`).join(''):'')}
 function sv(k,id,n){const w=LB[md(id)].map((_,j)=>$('#w'+j).value.trim()),o=document.querySelector('input[name=ok]:checked');
 if(w.some(x=>!x)||!o)return alert('وزنه‌ها و نتیجه رو کامل کن');const ok=o.value=='1';
-(db.logs[id]=(db.logs[id]||[]).filter(e=>e.d!=D())).push({d:D(),p:k,s:n,w,ok,r:ok?null:+$('#r').value||null});db.logs[id].sort((a,b)=>a.d<b.d?-1:1);save();op=-1;go('day',k)}
+(db.logs[id]=(db.logs[id]||[]).filter(e=>e.d!=D())).push({d:D(),p:k,s:n,w,ok,r:ok?null:+$('#r').value||null});db.logs[id].sort((a,b)=>a.d<b.d?-1:1);save();op=-1;go(k?'day':'lib',k)}
 function hist(){const g={};for(const i in db.logs)db.logs[i].forEach(e=>(g[e.d]=g[e.d]||[]).push([i,e]));
-return hd('تاریخچه')+Object.keys(g).sort().reverse().slice(0,60).map(d=>`<div class="card"><b>${d}</b>${g[d].map(([i,e])=>`<div class="row">${X(i)[0]}: ${fmt(i,e)} ${e.ok?'👍':'−'+(e.r??'?')}</div>`).join('')}</div>`).join('')}
+return hd('تاریخچه')+Object.keys(g).sort().reverse().slice(0,60).map(d=>`<div class="card"><b>${fd(d)}</b>${g[d].map(([i,e])=>`<div class="row">${X(i)[0]}: ${fmt(i,e)} ${e.ok?'👍':'−'+(e.r??'?')}</div>`).join('')}</div>`).join('')}
 function sett(){return hd('تنظیمات')+`<div class="card"><b>پشتیبان‌گیری</b><small>آخرین پشتیبان: ${db.bk||'هنوز نگرفتی'}</small></div>
 <button class="btn pri" onclick="exp()">خروجی گرفتن (پشتیبان)</button><button class="btn" onclick="$('#f').click()">برگردوندن اطلاعات از فایل</button>
 <input id="f" type="file" accept=".json,application/json" hidden onchange="imp(this.files[0])">`}
@@ -95,6 +101,16 @@ return hd('حرکت جدید','day')+`<label>بخش بدن<select id="ar">${og(U
 <label>نوع وزنه<select id="md"><option value="3">سه وزنه (هر ست جدا)<option value="1">یک وزنه برای هر ۳ ست</select></label>
 <label>اضافه به برنامه<select id="pg">${Object.keys(P).map(x=>`<option value="${x}" ${x==k?'selected':''}>${P[x][0]}`).join('')}</select></label><button class="btn pri" onclick="addx()">افزودن</button>`}
 function addx(){const n=$('#nm').value.trim();if(!n)return;const id='c'+Date.now(),p=$('#pg').value;db.cx[id]=[n,$('#ar').value,$('#md').value,[]];(db.add[p]=db.add[p]||[]).push(id);save();go('day',p)}
-function render(keep){const y=keep?$('main').scrollTop:0,s=v.s,m={home,hist,set:sett};$('#app').innerHTML=`<main>${s=='day'?day(v.k):s=='ex'?exs(v.k,v.i,v.n):s=='add'?add(v.k):m[s]()}</main><nav>${[['home','برنامه','🏋️'],['hist','تاریخچه','📅'],['set','تنظیمات','⚙️']].map(([k,t,ic])=>`<button class="${(s==k||(k=='home'&&['day','ex','add'].includes(s)))?'on':''}" onclick="go('${k}')"><b>${ic}</b>${t}</button>`).join('')}</nav>`;$('main').scrollTop=y}
+function render(keep){const y=keep?$('main').scrollTop:0,s=v.s,m={home,hist,lib,set:sett};$('#app').innerHTML=`<main>${s=='day'?day(v.k):s=='ex'?exs(v.k,v.i,v.n):s=='add'?add(v.k):m[s]()}</main><nav>${[['home','برنامه'],['lib','حرکات'],['hist','تاریخچه'],['set','تنظیمات']].map(([k,t])=>`<button class="${(s==k||(k=='home'&&['day','ex','add'].includes(s)))?'on':''}" onclick="go('${k}')"><svg viewBox="0 0 24 24">${IC[k]}</svg>${t}</button>`).join('')}</nav>`;$('main').scrollTop=y;if(s=='ex')gi(v.i).then(u=>u&&ph(u))}
+const IC={home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',lib:'<path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/>',hist:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',set:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>'};
+const nz=s=>s.toLowerCase().replace(/[\u200c\s]/g,'').replace(/ي/g,'ی').replace(/ك/g,'ک'),tier=e=>e[1].split(',').some(a=>UP.includes(a))?'بالاتنه':'پایین‌تنه',
+lrows=q=>{q=nz(q||'');return Object.keys(E).concat(Object.keys(db.cx)).filter(i=>{const e=X(i);return nz(e[0]+ar(e)+tier(e)).includes(q)}).map(i=>{const e=X(i),l=lst(i);return`<div class="card lr" onclick="go('ex','','${i}')"><div><b>${e[0]}</b><small>${ar(e)} · ${tier(e)}</small></div><small>${l?fd(l.d):'هنوز ثبت نشده'}</small></div>`}).join('')||'<div class="hint">حرکتی پیدا نشد</div>'},
+lq=q=>{v.q=q;$('#ll').innerHTML=lrows(q)},
+lib=()=>hd('حرکات')+`<input id="q" placeholder="جستجو: اسم حرکت، بخش بدن، بالاتنه یا پایین‌تنه" value="${v.q||''}" oninput="lq(this.value)"><div id="ll">${lrows(v.q)}</div>`;
+const idb=()=>new Promise(r=>{try{const q=indexedDB.open('gymimg',1);q.onupgradeneeded=()=>q.result.createObjectStore('i');q.onsuccess=()=>r(q.result);q.onerror=()=>r(null)}catch(e){r(null)}});
+const gi=async id=>{const d=await idb();return d?new Promise(r=>{const q=d.transaction('i').objectStore('i').get(id);q.onsuccess=()=>r(q.result);q.onerror=()=>r()}):0};
+const ph=u=>{const p=$('#ph');if(p){p.style.backgroundImage='url('+u+')';p.innerHTML=''}};
+async function si(id,f){if(!f)return;try{const im=await createImageBitmap(f),c=document.createElement('canvas'),k=Math.min(1,700/im.width);c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+const u=c.toDataURL('image/jpeg',.8),d=await idb();d.transaction('i','readwrite').objectStore('i').put(u,id);ph(u)}catch(e){alert('ذخیره‌ی عکس نشد')}}
 render();try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist();navigator.serviceWorker&&navigator.serviceWorker.register('sw.js')}catch(e){}
 </script></body></html>
