@@ -5,112 +5,139 @@
 <meta name="theme-color" content="#f4f7ff"><link rel="apple-touch-icon" href="icon.png"><link rel="manifest" href="manifest.webmanifest">
 <title>Gym Log</title>
 <style>
-:root{--bg:#f4f7ff;--c:#fff;--t:#0d1730;--m:#7a869f;--a:#2f4bff;--at:#eaf0ff;--g:#12a150;--gt:#e7f6ed;--w:#fff4e0;--wt:#8a5a00;--l:#e3e9f5;--sh:0 6px 18px rgba(52,84,160,.09)}
+:root{--bg:#f4f7ff;--c:#fff;--t:#0d1730;--m:#7a869f;--a:#2f4bff;--at:#eaf0ff;--g:#12a150;--gt:#e7f6ed;--l:#e3e9f5;--sh:0 6px 18px rgba(52,84,160,.09)}
 *{box-sizing:border-box;margin:0}html,body{height:100%}
 body{background:var(--bg);color:var(--t);font:16px/1.5 -apple-system,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
 #app{max-width:430px;margin:auto;height:100%;display:flex;flex-direction:column}
-main{flex:1;overflow:auto;padding:calc(env(safe-area-inset-top) + 16px) 16px 20px}
-nav{display:flex;background:var(--c);border-top:1px solid var(--l);padding-bottom:env(safe-area-inset-bottom)}
-nav button{flex:1;padding:10px 0 8px;background:none;border:0;color:var(--m);font:inherit;font-size:11px}nav svg{display:block;margin:0 auto 2px;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}nav .on{color:var(--t);font-weight:700}nav .on svg{fill:var(--t);fill-opacity:.12;stroke-width:2.2}
-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}header h1{flex:1;font-size:26px;font-weight:800;letter-spacing:-.3px}header span{color:var(--m);font-weight:700}
-header button{background:var(--c);border:1px solid var(--l);color:var(--t);font-size:22px;width:38px;height:38px;border-radius:12px}
+main{flex:1;overflow:auto;padding:calc(env(safe-area-inset-top) + 14px) 14px 14px}
+nav{display:flex;border-top:1px solid var(--l);padding-bottom:env(safe-area-inset-bottom);background:var(--c)}
+nav button{flex:1;padding:10px 0 8px;background:none;border:0;color:var(--m);font:inherit;font-size:11px}
+nav svg{display:block;margin:0 auto 2px;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+nav .on{color:var(--t);font-weight:700}nav .on svg{fill:var(--t);fill-opacity:.12;stroke-width:2.2}
+header{display:flex;align-items:center;gap:10px;margin:4px 0 12px}header h1{flex:1;font-size:24px;font-weight:800}header span{color:var(--m)}
+header button{background:var(--c);border:0;color:var(--t);font-size:22px;width:38px;height:38px;border-radius:12px;box-shadow:var(--sh)}
 .card{background:var(--c);border-radius:18px;padding:14px 16px;margin:10px 0;border:1.5px solid transparent;box-shadow:var(--sh)}
-.card small{color:var(--m);display:block}.card p{color:var(--m);font-size:14px;direction:ltr;text-align:right}
-.card em,.opt em{font-style:normal;font-size:13px;color:var(--a);font-weight:600}
-.card.ok{border-color:var(--g);background:var(--gt)}.ok em{color:var(--g)}.nx{border-color:var(--a);background:var(--at)}
-.bar{height:8px;background:var(--l);border-radius:4px;margin-bottom:8px}.bar i{display:block;height:100%;background:var(--g);border-radius:4px}
-.sh{display:flex;align-items:center;justify-content:space-between;gap:8px}.sh b{font-size:19px;font-weight:800}.sh>span{color:var(--m)}
-.opt{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;margin-top:8px;border-radius:12px;background:var(--bg)}.opt.dim{opacity:.5}
+.card small,.it small{color:var(--m);display:block;font-size:13px}.card.ok{border-color:var(--g);background:var(--gt)}
+.bar{height:6px;background:var(--l);border-radius:3px;margin-bottom:8px}.bar i{display:block;height:100%;background:var(--g);border-radius:3px}
 label{display:block;margin:10px 0;color:var(--m);font-size:14px}
-input,select{width:100%;padding:12px;margin-top:4px;border-radius:12px;border:1.5px solid var(--l);background:var(--c);color:var(--t);font:inherit;text-align:center}
-.tg label{display:flex;gap:8px;align-items:center;background:var(--c);border:1.5px solid var(--l);padding:12px;border-radius:12px;color:var(--t)}.tg input{width:auto;margin:0}
-.btn{display:block;width:100%;padding:14px;margin:10px 0;border-radius:14px;border:1.5px solid var(--l);background:var(--c);color:var(--t);font:inherit}
-.pri{background:var(--a);border-color:var(--a);color:#fff;font-weight:700}
-.hint{background:var(--w);color:var(--wt);border-radius:12px;padding:10px 12px;margin:8px 0;font-size:14px}
+input,select{width:100%;padding:12px;margin-top:4px;border-radius:12px;border:1px solid var(--l);background:var(--c);color:var(--t);font:inherit;text-align:center}
+.tg label{display:flex;gap:8px;align-items:center;background:var(--c);padding:12px;border-radius:12px;color:var(--t);box-shadow:var(--sh)}.tg input{width:auto;margin:0}
+.btn{display:block;width:100%;padding:14px;margin:10px 0;border-radius:14px;border:0;background:var(--c);color:var(--t);font:inherit;box-shadow:var(--sh)}
+.pri{background:var(--a);color:#fff;font-weight:600}
+.chip{display:inline-block;padding:8px 14px;margin:4px 0 4px 6px;border-radius:999px;border:0;background:var(--c);color:var(--t);font:inherit;font-size:14px;box-shadow:var(--sh)}
+.hint{background:var(--at);color:#1c33a8;border-radius:14px;padding:10px 12px;margin:8px 0;font-size:14px}
 .row{font-size:14px;color:var(--m);direction:ltr;text-align:right;padding:3px 0}
 .ph{height:170px;border-radius:20px;background:#e8eefc center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:var(--m);margin:8px 0}
 .gs{display:block;text-align:center;color:var(--a);font-size:13px;margin-bottom:6px}
 .sets{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:10px}.sets label{background:var(--c);border-radius:16px;padding:10px 8px;margin:6px 0;text-align:center;box-shadow:var(--sh)}
 .sets input{border:0;background:var(--bg);padding:10px 4px;font-size:18px;font-weight:700}
 .lr{display:flex;justify-content:space-between;align-items:center;gap:8px}.lr>small:last-child{text-align:left;white-space:nowrap}
+.g{padding:0;overflow:hidden}.gh{display:flex;align-items:center;gap:8px;padding:14px 16px 6px}.gh b{flex:1;font-size:19px;font-weight:800}
+.mini{padding:6px 12px;border-radius:999px;border:0;background:var(--at);color:var(--a);font:inherit;font-size:13px}.mini.x{background:#fdeceb;color:#c0392b}
+.it{display:flex;justify-content:space-between;gap:8px;padding:11px 16px;border-top:1px solid var(--l)}.it b{font-weight:600;direction:ltr;display:block;text-align:right}
+.it small{direction:ltr;text-align:right}.it em{font-style:normal;font-size:13px;color:var(--a);align-self:center;text-align:left}.it.dn em{color:var(--g)}
+.ck{width:26px;height:26px;border-radius:50%;border:2px solid var(--l);color:transparent;display:inline-flex;align-items:center;justify-content:center;flex:none}.ck.on{background:var(--a);border-color:var(--a);color:#fff}
+.it2{display:flex;align-items:center;gap:12px}.it2 b{direction:ltr;display:block;text-align:right}.it2 small{direction:ltr;text-align:right}
 </style></head><body><div id="app"></div>
 <script>
 const $=s=>document.querySelector(s),D=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
 const fd=d=>new Date(d+'T12:00:00').toLocaleDateString('fa-IR-u-ca-gregory',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 const A={uc:'سینه بالا',um:'سینه میانی',ul:'سینه پایین',lat:'زیربغل',row:'پشت میانی/قایقی',trap:'کول و ذوزنقه',lb:'فیله کمر',sf:'سرشانه جلو',sm:'سرشانه میانی',sr:'سرشانه پشت',tri:'پشت‌بازو',bi:'جلوبازو',ff:'ساعد جلو',fb:'ساعد پشت',abs:'شکم',obl:'پهلو',nf:'گردن جلو',nb:'گردن پشت',quad:'چهارسر ران',ham:'همسترینگ',glu:'باسن',add:'داخل ران',abd:'خارج ران',calf:'ساق پا',tib:'جلو ساق'};
 const UP=['uc','um','ul','lat','row','trap','lb','sf','sm','sr','tri','bi','ff','fb','abs','obl','nf','nb'],LO=['quad','ham','glu','add','abd','calf','tib'];
-// id:[name, area(s), mode(3|1|f), alternatives]
-const E={inc:['Incline chest press','uc'],bar:['Decline barbell press','ul',,['da']],da:['Dip assist','ul'],fly:['Pectoral fly','um'],lat:['Lat pulldown','lat',,['chin']],chin:['Chin assist','lat'],
-lr:['Cable lateral raise','sm'],sp:['Shoulder press','sf'],tp:['Cable triceps pulldown','tri'],bc:['Cable biceps curl','bi'],row:['Seated row','row'],sh:['Cable shrugs','trap'],
-hy:['Hyper extension','lb','1'],cp:['Converging chest press','uc,um'],rd:['Rear delt fly','sr'],to:['Cable overhead triceps extension','tri'],
-fo:['ساعد با کابل (جلو و پشت)','ff,fb','f'],cr:['Abdominal crunch','abs'],nf:['Neck front','nf'],hk:['Hack squat','quad',,['lp']],lp:['Leg press','quad'],le:['Leg extension','quad'],
-gt:['Glute trainer','glu'],pl:['Prone leg curl','ham'],sl:['Seated leg curl','ham'],ad:['Hip adductor','add'],sc:['Seated calf raise','calf'],hl:['Horizontal leg press','quad'],
-gl:['Glute','glu'],ab:['Hip abductor','abd'],ti:['Tibialis raise','tib'],wc:['Cable woodchopper','obl'],nb:['Neck back','nb'],
-vb:['Vertical bench press','um'],cf:['Cable fly (high to low)','ul'],sar:['Single-arm cable row','row'],sap:['Single-arm cable pulldown','lat'],pt:['Cable pull-through','lb'],
-csp:['Converging shoulder press','sf'],lrm:['Lateral raise machine','sm'],fp:['Cable face pull','sr'],rcf:['Reverse cable fly','sr'],hc:['Cable rope hammer curl','bi'],sac:['Single-arm cable curl','bi'],
-ccr:['Standing cable crunch','abs'],gk:['Glute kickback machine','glu'],ht:['Hip thrust machine','glu'],tw:['Tibialis raise (wall)','tib'],scr:['Standing calf raise (hack machine)','calf']};
-const P={ua:['بالاتنه A',['inc','bar','fly','lat','lr','sp','tp','bc']],ub:['بالاتنه B',['row','sh','hy','cp','rd','bc','to','fo']],
-la:['پایین‌تنه A',['hk','le','gt','pl','sl','ad','sc','cr','nf']],lb:['پایین‌تنه B',['sl','hl','gl','ab','ti','wc','nb']]};
-// starting data: weights, liked(1/0), reps of last set if not liked
-const S={inc:['23+5,29,29+5',1],fly:['25,32,39',1],lat:['39,39+2.3,45',1],lr:['2.3,2.3,4.5',0,4],cr:['45,45+2.3,50',1],nf:['5,5,7.5',1],row:['29,36,43',1],sh:['36,38.3,40.5',1],
-cp:['27.2,32,33.3',1],hy:['16',1],fo:['20.3,22.5,24.8,11.3,13.5,15.8',1],rd:['25,32,39',0,8],tp:['14,18,23',1],bc:['11.3,13.5,15.8',1],wc:['6.8,9,11.3',1],bar:['30,35,40',1],nb:['5,5,7.5',1],
+// id:[name, body part(s), mode(3|1|f)]
+const E={inc:['Incline chest press','uc'],bar:['Decline barbell press','ul'],da:['Dip assist','ul'],cf:['Cable fly (high to low)','ul'],fly:['Pectoral fly','um'],vb:['Vertical bench press','um'],cp:['Converging chest press','uc,um'],
+ibb:['Barbell incline press','uc'],ibd:['Dumbbell incline press','uc'],lat:['Lat pulldown','lat'],chin:['Chin assist','lat'],sap:['Single-arm cable pulldown','lat'],
+row:['Seated row','row'],sar:['Single-arm cable row','row'],brw:['Barbell row','row'],sh:['Cable shrugs','trap'],shd:['Dumbbell shrugs','trap'],hy:['Hyper extension','lb','1'],pt:['Cable pull-through','lb'],
+sp:['Shoulder press','sf'],csp:['Converging shoulder press','sf'],spd:['Dumbbell shoulder press','sf'],lr:['Cable lateral raise','sm'],lrm:['Lateral raise machine','sm'],lrd:['Dumbbell lateral raise','sm'],
+rd:['Rear delt fly','sr'],fp:['Cable face pull','sr'],rcf:['Reverse cable fly','sr'],tp:['Cable triceps pulldown','tri'],to:['Cable overhead triceps extension','tri'],tde:['Dumbbell overhead triceps extension','tri'],ez:['EZ-bar lying triceps extension','tri'],
+bc:['Cable biceps curl','bi'],hc:['Cable rope hammer curl','bi'],sac:['Single-arm cable curl','bi'],bcb:['Barbell curl','bi'],bcd:['Dumbbell curl','bi'],hcd:['Dumbbell hammer curl','bi'],
+fo:['ساعد با کابل (جلو و پشت)','ff,fb','f'],wcu:['Barbell wrist curl','ff'],wcr:['Reverse wrist curl','fb'],cr:['Abdominal crunch','abs'],ccr:['Standing cable crunch','abs'],wc:['Cable woodchopper','obl'],
+nf:['Neck front','nf'],nb:['Neck back','nb'],hk:['Hack squat','quad'],lp:['Leg press','quad'],hl:['Horizontal leg press','quad'],le:['Leg extension','quad'],sq:['Barbell back squat','quad'],lg:['Dumbbell lunges','quad'],
+pl:['Prone leg curl','ham'],sl:['Seated leg curl','ham'],rdl:['Romanian deadlift','ham'],gt:['Glute trainer','glu'],gl:['Glute','glu'],gk:['Glute kickback machine','glu'],ht:['Hip thrust machine','glu'],
+ad:['Hip adductor','add'],ab:['Hip abductor','abd'],sc:['Seated calf raise','calf'],scr:['Standing calf raise (hack machine)','calf'],ti:['Tibialis raise','tib'],tw:['Tibialis raise (wall)','tib']};
+const S={inc:['23+5,29,29+5',1],bar:['30,35,40',1],fly:['25,32,39',1],lat:['39,39+2.3,45',1],lr:['2.3,2.3,4.5',0,4],cr:['45,45+2.3,50',1],nf:['5,5,7.5',1],row:['29,36,43',1],sh:['36,38.3,40.5',1],
+cp:['27.2,32,33.3',1],hy:['16',1],fo:['20.3,22.5,24.8,11.3,13.5,15.8',1],rd:['25,32,39',0,8],tp:['14,18,23',1],bc:['11.3,13.5,15.8',1],wc:['6.8,9,11.3',1],nb:['5,5,7.5',1],
 lp:['60,70,80',1],le:['35,40,45',1],gt:['15,17.5,20',1],ad:['23,29,36',1],pl:['36,41,45',1],sc:['20,30,40',1],hk:['40,50,60',1],sl:['40,45,50',1],gl:['27,32,36',1],hl:['45,52,59',1],ab:['36,43,50',1]};
-const seed=()=>{const L={};for(const k in S){const[w,ok,r]=S[k];L[k]=[{d:'2026-10-25',p:'',w:w.split(','),ok:!!ok,r:r||null}]}return{logs:L,cx:{},add:{},bk:''}};
-function load(){try{const x=JSON.parse(localStorage.getItem('gymlog'));if(x&&x.logs){if(x.logs.ch){x.logs.bar=(x.logs.bar||[]).concat(x.logs.ch.map(e=>{const c={...e};delete c.s;return c})).sort((a,b)=>a.d<b.d?-1:1);delete x.logs.ch;localStorage.setItem('gymlog',JSON.stringify(x))}return x}}catch(e){}return seed()}
-let db=load(),v={s:'home'},op=-1;
-const save=()=>{try{localStorage.setItem('gymlog',JSON.stringify(db))}catch(e){}};
+const seed=()=>{const L={};for(const k in S){const[w,ok,r]=S[k];L[k]=[{d:'2026-10-25',p:'',w:w.split(','),ok:!!ok,r:r||null}]}return{logs:L,cx:{},mu:{},days:[],bk:''}};
+function load(){try{const x=JSON.parse(localStorage.getItem('gymlog'));if(x&&x.logs){if(x.logs.ch){x.logs.bar=(x.logs.bar||[]).concat(x.logs.ch.map(e=>{const c={...e};delete c.s;return c})).sort((a,b)=>a.d<b.d?-1:1);delete x.logs.ch}
+x.days=x.days||[];x.mu=x.mu||{};x.cx=x.cx||{};delete x.add;return x}}catch(e){}return seed()}
+let db=load(),v={s:'home'};
+const save=()=>{try{localStorage.setItem('gymlog',JSON.stringify(db))}catch(e){}};save();
 const X=id=>E[id]||db.cx[id],md=id=>X(id)[2]||'3',lst=id=>(db.logs[id]||[]).slice(-1)[0],ar=e=>e[1].split(',').map(k=>A[k]).join(' / '),
+tier=e=>e[1].split(',').some(a=>UP.includes(a))?'بالاتنه':'پایین‌تنه',dy=k=>db.days.find(d=>d.id==k),
+pool=a=>Object.keys(E).concat(Object.keys(db.cx)).filter(i=>X(i)[1].split(',').includes(a)),
 LB={'3':['ست ۱','ست ۲','ست ۳'],'1':['وزنه (هر ۳ ست)'],f:['جلو ۱','جلو ۲','جلو ۳','پشت ۱','پشت ۲','پشت ۳']},
-fmt=(id,l)=>!l?'—':md(id)=='f'?l.w.slice(0,3).join(' / ')+'  |  '+l.w.slice(3).join(' / '):l.w.join(' / '),
-ids=k=>P[k][1].concat(db.add[k]||[]);
-function stat(id){if((db.logs[id]||[]).some(e=>e.d==D()))return['✓ ثبت شد','ok'];const l=lst(id);if(!l)return['بدون سابقه','n'];return l.ok?['👍 این بار سنگین‌تر کن','up']:['دفعه قبل '+(l.r??'?')+' تکرار (ست آخر)','w']}
-const go=(s,k,i,n)=>{v={s,k,i,n};render()};
-const hd=(t,b,x)=>`<header>${b?`<button onclick="go('${b}','${v.k}')">›</button>`:''}<h1>${t}</h1><span>${x||''}</span></header>`;
-function home(){const all=[].concat(...Object.values(db.logs)).filter(e=>e.p).sort((a,b)=>a.d<b.d?1:-1),order=['ua','la','ub','lb'],nx=order[(order.indexOf(all[0]&&all[0].p)+1)%4],
-dd=db.bk?(Date.parse(D())-Date.parse(db.bk))/864e5:99;
-return hd('برنامه تمرین')+(dd>14?`<div class="hint" onclick="go('set')">بیشتر از دو هفته از آخرین پشتیبان‌گیری گذشته. برای گرفتن پشتیبان اینجا بزن.</div>`:'')+
-order.map(k=>{const l=all.find(e=>e.p==k),n=ids(k).filter((_,j)=>sd(k,j)).length;return`<div class="card ${k==nx?'nx':''}" onclick="go('day','${k}')"><b>${P[k][0]}</b>${k==nx?' <em>نوبت امروز</em>':''}<small>${ids(k).length} حرکت · آخرین بار: ${l?fd(l.d):'—'}${n?' · امروز '+n+' انجام شد':''}</small></div>`}).join('')}
-const sd=(k,n)=>{for(const i in db.logs)if(db.logs[i].some(e=>e.d==D()&&e.p==k&&e.s===n))return i;return null};
-const tg=n=>{op=op==n?-1:n;render(1)};
-const cand=id=>{const s=X(id)[1].split(',');return Object.keys(E).concat(Object.keys(db.cx)).filter(i=>X(i)[1].split(',').some(a=>s.includes(a)))};
-function day(k){const a=ids(k),dn=a.map((_,n)=>sd(k,n)),c=dn.filter(x=>x).length;
-return hd(P[k][0],'home',c+'/'+a.length)+`<div class="bar"><i style="width:${c/a.length*100}%"></i></div>`+a.map((id,n)=>{const d=dn[n],e=X(id);
-return`<div class="card ${d?'ok':''}"><div class="sh" onclick="tg(${n})"><div><b>${ar(e)}</b><small>${d?'✓ '+X(d)[0]:'پیشنهاد: '+e[0]}</small></div><span>${op==n?'▴':'▾'}</span></div>`+
-(op==n?cand(id).sort((x,y)=>(y==id)-(x==id)).map(i=>`<div class="opt ${stat(i)[1]=='ok'?'dim':''}" onclick="go('ex','${k}','${i}',${n})"><span>${X(i)[0]}${i==id?' ⭐':''}</span><em>${stat(i)[0]}</em></div>`).join(''):'')+`</div>`}).join('')+`<button class="btn" onclick="go('add','${k}')">+ حرکت جدید</button>`}
-function exs(k,id,n){const e=X(id),l=lst(id),t=(db.logs[id]||[]).find(x=>x.d==D()),b=t||l,hist=(db.logs[id]||[]).slice(-5).reverse();
-return hd(e[0],v.k?'day':'lib')+`<small style="color:var(--m)">${ar(e)}</small><div id="ph" class="ph" onclick="$('#pf').click()"><span>📷 افزودن عکس دستگاه</span></div><input id="pf" type="file" accept="image/*" hidden onchange="si('${id}',this.files[0])"><a class="gs" target="_blank" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(e[0]+' exercise')}">جستجوی تصویر در گوگل</a>`+(l?`<div class="hint">${l.ok?'دفعه قبل ۱۰ تکرار کامل شد 👍 — این بار وزنه رو سنگین‌تر کن':'دفعه قبل ست آخر '+(l.r??'?')+' تکرار زدی — همین وزنه‌ها رو ادامه بده'}</div>`:'')+
+fmt=(id,l)=>!l?'بدون سابقه':md(id)=='f'?l.w.slice(0,3).join(' / ')+'  |  '+l.w.slice(3).join(' / '):l.w.join(' / ');
+function stat(id){if((db.logs[id]||[]).some(e=>e.d==D()))return['✓ ثبت شد','ok'];const l=lst(id);if(!l)return['بدون سابقه','n'];return l.ok?['👍 سنگین‌تر کن','up']:['دفعه قبل '+(l.r??'?')+' تکرار','w']}
+const go=(s,k,i,a)=>{v={s,k,i,a};render()};
+const hd=(t,b,x)=>`<header>${b?`<button onclick="go('${b}','${v.k||''}','${v.i||''}','${v.a||''}')">›</button>`:''}<h1>${t}</h1><span>${x||''}</span></header>`;
+// ---- program days
+function home(){const dd=db.bk?(Date.parse(D())-Date.parse(db.bk))/864e5:99,al=[].concat(...Object.values(db.logs));
+return hd('برنامه‌ها')+(dd>14?`<div class="hint" onclick="go('set')">بیشتر از دو هفته از آخرین پشتیبان‌گیری گذشته. برای گرفتن پشتیبان اینجا بزن.</div>`:'')+
+(db.days.length?'':`<div class="hint">هنوز روزی نساختی. با دکمه‌ی پایین اولین روز تمرین رو بساز.</div>`)+
+db.days.map(d=>{const n=d.parts.reduce((s,p)=>s+p.ex.length,0),l=al.filter(e=>e.p==d.id).map(e=>e.d).sort().pop();
+return`<div class="card" onclick="go('day','${d.id}')"><b style="font-size:18px">${d.n}</b><small>${d.parts.length} بخش · ${n} حرکت · آخرین بار: ${l?fd(l):'—'}</small></div>`}).join('')+`<button class="btn pri" onclick="nd()">+ روز تمرین جدید</button>`}
+const nd=()=>{const n=(prompt('اسم روز تمرین؟ (مثلاً بالاتنه ۱)')||'').trim();if(!n)return;const d={id:'d'+Date.now(),n,parts:[]};db.days.push(d);save();go('day',d.id)},
+rd=k=>{const d=dy(k),n=(prompt('اسم جدید',d.n)||'').trim();if(n){d.n=n;save();render()}},
+dl=k=>{if(confirm('این روز حذف بشه؟ تاریخچه‌ی حرکت‌ها حفظ میشه.')){db.days=db.days.filter(d=>d.id!=k);save();go('home')}},
+ap=(k,a)=>{const d=dy(k);if(!d.parts.some(p=>p.a==a))d.parts.push({a,ex:[]});save();go('pick',k,'',a)},
+rp=(k,a)=>{if(confirm('این بخش از روز حذف بشه؟')){const d=dy(k);d.parts=d.parts.filter(p=>p.a!=a);save();render()}},
+tx=(k,a,i)=>{const p=dy(k).parts.find(p=>p.a==a),j=p.ex.indexOf(i);j<0?p.ex.push(i):p.ex.splice(j,1);save();render(1)};
+function day(k){const d=dy(k),all=d.parts.flatMap(p=>p.ex),n=all.filter(i=>stat(i)[1]=='ok').length;
+return hd(d.n,'home',all.length?n+'/'+all.length:'')+(all.length?`<div class="bar"><i style="width:${n/all.length*100}%"></i></div>`:'')+
+(d.parts.length?'':`<div class="hint">این روز خالیه. با «+ بخش بدن» شروع کن.</div>`)+
+d.parts.map(p=>`<div class="card g"><div class="gh"><b>${A[p.a]}</b><button class="mini" onclick="go('pick','${k}','','${p.a}')">+ حرکت</button><button class="mini x" onclick="rp('${k}','${p.a}')">حذف بخش</button></div>`+
+(p.ex.length?p.ex.map(i=>{const[s,c]=stat(i);return`<div class="it ${c=='ok'?'dn':''}" onclick="go('ex','${k}','${i}','${p.a}')"><div><b>${X(i)[0]}</b><small>${fmt(i,lst(i))}</small></div><em>${s}</em><button class="mini x" onclick="event.stopPropagation();tx('${k}','${p.a}','${i}')">✕</button></div>`}).join(''):`<div class="it"><small>هنوز حرکتی انتخاب نکردی</small></div>`)+`</div>`).join('')+
+`<button class="btn pri" onclick="go('parts','${k}')">+ بخش بدن</button><button class="btn" onclick="rd('${k}')">تغییر نام روز</button><button class="btn" onclick="dl('${k}')">حذف روز</button>`}
+const parts=k=>hd('انتخاب بخش بدن','day')+[['بالاتنه',UP],['پایین‌تنه',LO]].map(([t,l])=>`<label>${t}</label>`+l.map(a=>`<button class="chip" onclick="ap('${k}','${a}')">${A[a]}</button>`).join('')).join('');
+function pick(k,a){const p=dy(k).parts.find(p=>p.a==a);return hd(A[a],'day')+`<div class="hint">حرکت‌هایی که می‌خوای توی این بخش باشن رو تیک بزن. هر چندتا که لازمه، و با تیک دوباره برش‌دار.</div>`+
+pool(a).map(i=>`<div class="card it2" onclick="tx('${k}','${a}','${i}')"><span class="ck ${p.ex.includes(i)?'on':''}">✓</span><div><b>${X(i)[0]}</b><small>${fmt(i,lst(i))}</small></div></div>`).join('')+`<button class="btn" onclick="go('add','${k}','','${a}')">+ حرکت جدید برای این بخش</button>`}
+// ---- exercise log
+const mu=(i,x)=>{db.mu[i]=x;save()};
+function exs(k,id){const e=X(id),l=lst(id),t=(db.logs[id]||[]).find(x=>x.d==D()),b=t||l,hist=(db.logs[id]||[]).slice(-5).reverse();
+return hd(e[0],k?'day':'lib')+`<small style="color:var(--m)">${tier(e)} · ${ar(e)}</small>
+<label>ماهیچه‌های درگیر (اختیاری)<input value="${db.mu[id]||''}" oninput="mu('${id}',this.value)" placeholder="مثلاً سینه بالا، سرشانه جلو، پشت‌بازو"></label>
+<div id="ph" class="ph" onclick="$('#pf').click()"><span>📷 افزودن عکس دستگاه</span></div><input id="pf" type="file" accept="image/*" hidden onchange="si('${id}',this.files[0])"><a class="gs" target="_blank" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(e[0]+' exercise')}">جستجوی تصویر در گوگل</a>`+
+(l?`<div class="hint">${l.ok?'دفعه قبل ۱۰ تکرار کامل شد 👍 — این بار وزنه رو سنگین‌تر کن':'دفعه قبل ست آخر '+(l.r??'?')+' تکرار زدی — همین وزنه‌ها رو ادامه بده'}</div>`:'')+
 `<div class="sets" style="--n:${Math.min(3,LB[md(id)].length)}">`+LB[md(id)].map((x,j)=>`<label>${x}<input id="w${j}" value="${b?b.w[j]??'':''}"></label>`).join('')+'</div>'+
 `<div class="tg"><label><input type="radio" name="ok" value="1" ${t&&t.ok?'checked':''}>👍 ۱۰ تکرار کامل شد</label><label><input type="radio" name="ok" value="0" ${t&&!t.ok?'checked':''}>ناقص</label></div>
 <label>تعداد تکرار ست آخر (اگه ناقص بود)<input id="r" type="number" inputmode="numeric" value="${t&&t.r||''}"></label>
-<button class="btn pri" onclick="sv('${k}','${id}',${n})">ذخیره</button>`+
-(hist.length?`<label>سابقه</label>`+hist.map(h=>`<div class="row">${fd(h.d)} · ${fmt(id,h)} · ${h.ok?'👍':'−'+(h.r??'?')}</div>`).join(''):'')}
-function sv(k,id,n){const w=LB[md(id)].map((_,j)=>$('#w'+j).value.trim()),o=document.querySelector('input[name=ok]:checked');
+<button class="btn pri" onclick="sv('${k}','${id}')">ذخیره</button>`+(hist.length?`<label>سابقه</label>`+hist.map(h=>`<div class="row">${fd(h.d)} · ${fmt(id,h)} · ${h.ok?'👍':'−'+(h.r??'?')}</div>`).join(''):'')}
+function sv(k,id){const w=LB[md(id)].map((_,j)=>$('#w'+j).value.trim()),o=document.querySelector('input[name=ok]:checked');
 if(w.some(x=>!x)||!o)return alert('وزنه‌ها و نتیجه رو کامل کن');const ok=o.value=='1';
-(db.logs[id]=(db.logs[id]||[]).filter(e=>e.d!=D())).push({d:D(),p:k,s:n,w,ok,r:ok?null:+$('#r').value||null});db.logs[id].sort((a,b)=>a.d<b.d?-1:1);save();op=-1;go(k?'day':'lib',k)}
+(db.logs[id]=(db.logs[id]||[]).filter(e=>e.d!=D())).push({d:D(),p:k,w,ok,r:ok?null:+$('#r').value||null});db.logs[id].sort((a,b)=>a.d<b.d?-1:1);save();go(k?'day':'lib',k)}
+// ---- library
+const nz=s=>s.toLowerCase().replace(/[\u200c\s]/g,'').replace(/ي/g,'ی').replace(/ك/g,'ک'),
+lrows=q=>{q=nz(q||'');return Object.keys(E).concat(Object.keys(db.cx)).filter(i=>{const e=X(i);return nz(e[0]+ar(e)+tier(e)+(db.mu[i]||'')).includes(q)}).map(i=>{const e=X(i),l=lst(i);
+return`<div class="card lr" onclick="go('ex','','${i}')"><div><b style="direction:ltr;display:block;text-align:right">${e[0]}</b><small>${ar(e)} · ${tier(e)}${db.mu[i]?' · '+db.mu[i]:''}</small></div><small>${l?fd(l.d):'هنوز ثبت نشده'}</small></div>`}).join('')||'<div class="hint">حرکتی پیدا نشد</div>'},
+lq=q=>{v.q=q;$('#ll').innerHTML=lrows(q)},
+lib=()=>hd('حرکات')+`<input id="q" placeholder="جستجو: اسم حرکت، بخش بدن، بالاتنه یا پایین‌تنه" value="${v.q||''}" oninput="lq(this.value)"><div id="ll">${lrows(v.q)}</div><button class="btn" onclick="go('add')">+ حرکت جدید</button>`;
+function add(){const og=(l,t)=>`<optgroup label="${t}">${l.map(a=>`<option value="${a}" ${a==v.a?'selected':''}>${A[a]}`).join('')}</optgroup>`;
+return hd('حرکت جدید',v.k?'pick':'lib')+`<label>بخش بدن<select id="ar">${og(UP,'بالاتنه')}${og(LO,'پایین‌تنه')}</select></label><label>اسم حرکت<input id="nm"></label>
+<label>نوع وزنه<select id="md"><option value="3">سه وزنه (هر ست جدا)<option value="1">یک وزنه برای هر ۳ ست</select></label><button class="btn pri" onclick="addx()">افزودن</button>`}
+function addx(){const n=$('#nm').value.trim();if(!n)return;const id='c'+Date.now(),a=$('#ar').value;db.cx[id]=[n,a,$('#md').value];
+if(v.k&&v.a){const p=dy(v.k).parts.find(p=>p.a==v.a);if(p&&a==v.a)p.ex.push(id)}save();go(v.k?'pick':'lib',v.k,'',v.a)}
+// ---- history, settings, backup
 function hist(){const g={};for(const i in db.logs)db.logs[i].forEach(e=>(g[e.d]=g[e.d]||[]).push([i,e]));
 return hd('تاریخچه')+Object.keys(g).sort().reverse().slice(0,60).map(d=>`<div class="card"><b>${fd(d)}</b>${g[d].map(([i,e])=>`<div class="row">${X(i)[0]}: ${fmt(i,e)} ${e.ok?'👍':'−'+(e.r??'?')}</div>`).join('')}</div>`).join('')}
-function sett(){return hd('تنظیمات')+`<div class="card"><b>پشتیبان‌گیری</b><small>آخرین پشتیبان: ${db.bk||'هنوز نگرفتی'}</small></div>
+function sett(){return hd('تنظیمات')+`<div class="card"><b>پشتیبان‌گیری</b><small>آخرین پشتیبان: ${db.bk?fd(db.bk):'هنوز نگرفتی'}</small></div>
 <button class="btn pri" onclick="exp()">خروجی گرفتن (پشتیبان)</button><button class="btn" onclick="$('#f').click()">برگردوندن اطلاعات از فایل</button>
 <input id="f" type="file" accept=".json,application/json" hidden onchange="imp(this.files[0])">`}
 async function exp(){const b=new Blob([JSON.stringify(db)],{type:'application/json'}),n='gym-backup-'+D()+'.json',f=new File([b],n,{type:'application/json'});
 if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f]})}catch(e){return}}else{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;a.click()}
 db.bk=D();save();render()}
-function imp(f){if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.logs)throw 0;if(confirm('اطلاعات فعلی با فایل جایگزین بشه؟')){db=x;save();go('home')}}catch(e){alert('فایل معتبر نیست')}};r.readAsText(f)}
-function add(k){const og=(l,t)=>`<optgroup label="${t}">${l.map(a=>`<option value="${a}">${A[a]}`).join('')}</optgroup>`;
-return hd('حرکت جدید','day')+`<label>بخش بدن<select id="ar">${og(UP,'بالاتنه')}${og(LO,'پایین‌تنه')}</select></label><label>اسم حرکت<input id="nm"></label>
-<label>نوع وزنه<select id="md"><option value="3">سه وزنه (هر ست جدا)<option value="1">یک وزنه برای هر ۳ ست</select></label>
-<label>اضافه به برنامه<select id="pg">${Object.keys(P).map(x=>`<option value="${x}" ${x==k?'selected':''}>${P[x][0]}`).join('')}</select></label><button class="btn pri" onclick="addx()">افزودن</button>`}
-function addx(){const n=$('#nm').value.trim();if(!n)return;const id='c'+Date.now(),p=$('#pg').value;db.cx[id]=[n,$('#ar').value,$('#md').value,[]];(db.add[p]=db.add[p]||[]).push(id);save();go('day',p)}
-function render(keep){const y=keep?$('main').scrollTop:0,s=v.s,m={home,hist,lib,set:sett};$('#app').innerHTML=`<main>${s=='day'?day(v.k):s=='ex'?exs(v.k,v.i,v.n):s=='add'?add(v.k):m[s]()}</main><nav>${[['home','برنامه'],['lib','حرکات'],['hist','تاریخچه'],['set','تنظیمات']].map(([k,t])=>`<button class="${(s==k||(k=='home'&&['day','ex','add'].includes(s)))?'on':''}" onclick="go('${k}')"><svg viewBox="0 0 24 24">${IC[k]}</svg>${t}</button>`).join('')}</nav>`;$('main').scrollTop=y;if(s=='ex')gi(v.i).then(u=>u&&ph(u))}
-const IC={home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',lib:'<path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/>',hist:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',set:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>'};
-const nz=s=>s.toLowerCase().replace(/[\u200c\s]/g,'').replace(/ي/g,'ی').replace(/ك/g,'ک'),tier=e=>e[1].split(',').some(a=>UP.includes(a))?'بالاتنه':'پایین‌تنه',
-lrows=q=>{q=nz(q||'');return Object.keys(E).concat(Object.keys(db.cx)).filter(i=>{const e=X(i);return nz(e[0]+ar(e)+tier(e)).includes(q)}).map(i=>{const e=X(i),l=lst(i);return`<div class="card lr" onclick="go('ex','','${i}')"><div><b>${e[0]}</b><small>${ar(e)} · ${tier(e)}</small></div><small>${l?fd(l.d):'هنوز ثبت نشده'}</small></div>`}).join('')||'<div class="hint">حرکتی پیدا نشد</div>'},
-lq=q=>{v.q=q;$('#ll').innerHTML=lrows(q)},
-lib=()=>hd('حرکات')+`<input id="q" placeholder="جستجو: اسم حرکت، بخش بدن، بالاتنه یا پایین‌تنه" value="${v.q||''}" oninput="lq(this.value)"><div id="ll">${lrows(v.q)}</div>`;
+function imp(f){if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.logs)throw 0;if(confirm('اطلاعات فعلی با فایل جایگزین بشه؟')){x.days=x.days||[];x.mu=x.mu||{};x.cx=x.cx||{};db=x;save();go('home')}}catch(e){alert('فایل معتبر نیست')}};r.readAsText(f)}
+// ---- photos (stored on the phone)
 const idb=()=>new Promise(r=>{try{const q=indexedDB.open('gymimg',1);q.onupgradeneeded=()=>q.result.createObjectStore('i');q.onsuccess=()=>r(q.result);q.onerror=()=>r(null)}catch(e){r(null)}});
 const gi=async id=>{const d=await idb();return d?new Promise(r=>{const q=d.transaction('i').objectStore('i').get(id);q.onsuccess=()=>r(q.result);q.onerror=()=>r()}):0};
 const ph=u=>{const p=$('#ph');if(p){p.style.backgroundImage='url('+u+')';p.innerHTML=''}};
 async function si(id,f){if(!f)return;try{const im=await createImageBitmap(f),c=document.createElement('canvas'),k=Math.min(1,700/im.width);c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);
 const u=c.toDataURL('image/jpeg',.8),d=await idb();d.transaction('i','readwrite').objectStore('i').put(u,id);ph(u)}catch(e){alert('ذخیره‌ی عکس نشد')}}
+// ---- shell
+const IC={home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',lib:'<path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/>',hist:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',set:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>'};
+function render(keep){const y=keep&&$('main')?$('main').scrollTop:0,s=v.s,m={home,hist,lib,set:sett,add,parts:()=>parts(v.k),day:()=>day(v.k),pick:()=>pick(v.k,v.a),ex:()=>exs(v.k,v.i)},
+on=k=>s==k||(k=='home'&&(['day','parts','pick'].includes(s)||((s=='ex'||s=='add')&&v.k)))||(k=='lib'&&(s=='ex'||s=='add')&&!v.k);
+$('#app').innerHTML=`<main>${m[s]()}</main><nav>${[['home','برنامه'],['lib','حرکات'],['hist','تاریخچه'],['set','تنظیمات']].map(([k,t])=>`<button class="${on(k)?'on':''}" onclick="go('${k}')"><svg viewBox="0 0 24 24">${IC[k]}</svg>${t}</button>`).join('')}</nav>`;
+$('main').scrollTop=y;if(s=='ex')gi(v.i).then(u=>u&&ph(u))}
 render();try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist();navigator.serviceWorker&&navigator.serviceWorker.register('sw.js')}catch(e){}
 </script></body></html>
