@@ -129,28 +129,33 @@ const PUP=['uc','um','ul','lat','row','trap','lb','sf','sm','sr','tri','bi','fa'
 const isUp=a=>MUP.includes(a)||a=='fa';
 
 // ---------- built-in exercises  id:[name, body part(s), mode]  mode: 3 = three weights, 1 = one weight, f = forearm (front+back)
-const E={inc:['Incline chest press','uc'],cp:['Converging chest press','uc,um'],ibb:['Barbell incline press','uc'],ibd:['Dumbbell incline press','uc'],
-fly:['Pectoral fly','um'],vb:['Vertical bench press','um'],
-bar:['Decline barbell press','ul'],da:['Dip assist','ul'],cf:['Cable fly (high to low)','ul'],
-lat:['Lat pulldown','lat'],chin:['Chin assist','lat'],sap:['Single-arm cable pulldown','lat'],
-row:['Seated row','row'],sar:['Single-arm cable row','row'],brw:['Barbell row','row'],
-sh:['Cable shrugs','trap'],shd:['Dumbbell shrugs','trap'],hy:['Hyper extension','lb','1'],pt:['Cable pull-through','lb'],
-sp:['Shoulder press','sf'],csp:['Converging shoulder press','sf'],spd:['Dumbbell shoulder press','sf'],
-lr:['Cable lateral raise','sm'],lrm:['Lateral raise machine','sm'],lrd:['Dumbbell lateral raise','sm'],
+const E={inc:['Incline chest press (3-in-1)','uc'],pic:['Plate-loaded incline chest press','uc'],ibb:['Barbell incline bench press','uc'],
+cp:['Converging chest press','um'],cp3:['Chest press (3-in-1)','um'],fly:['Pectoral fly','um'],vb:['Vertical bench press','um'],fbb:['Barbell bench press','um'],
+bar:['Barbell decline bench press','ul'],da:['Dip assist','ul'],cf:['Cable fly (high to low)','ul'],
+lat:['Lat pulldown','lat'],pll:['Plate-loaded lat pulldown','lat'],plr:['Plate-loaded seated row','lat'],
+row:['Seated row machine','row'],csr:['Seated cable row','row'],smr:['Smith machine bent-over row','row'],
+sh:['Cable shrugs','trap'],cut:['Cable upright row','trap'],smt:['Smith machine shrug','trap'],
+hy:['Hyper extension','lb','1'],pt:['Cable pull-through','lb'],smgm:['Smith machine good morning','lb'],
+sp:['Shoulder press','sf'],csp:['Converging shoulder press','sf'],sp3:['Shoulder press (3-in-1)','sf'],
+lr:['Cable lateral raise','sm'],lrd:['Dumbbell lateral raise','sm'],dsl:['Dumbbell seated lateral raise','sm'],
 rd:['Rear delt fly','sr'],fp:['Cable face pull','sr'],rcf:['Reverse cable fly','sr'],
-tp:['Cable triceps pulldown','tri'],to:['Cable overhead triceps extension','tri'],tde:['Dumbbell overhead triceps extension','tri'],ez:['EZ-bar lying triceps extension','tri'],
-bc:['Cable biceps curl','bi'],hc:['Cable rope hammer curl','bi'],sac:['Single-arm cable curl','bi'],bcb:['Barbell curl','bi'],bcd:['Dumbbell curl','bi'],hcd:['Dumbbell hammer curl','bi'],
-fo:['ساعد با کابل (جلو و پشت)','ff,fb','f'],wcu:['Barbell wrist curl','ff'],wcr:['Reverse wrist curl','fb'],
-cr:['Abdominal crunch','abs'],ccr:['Standing cable crunch','abs'],wc:['Cable woodchopper','obl'],nf:['Neck front','nf'],nb:['Neck back','nb'],
-hk:['Hack squat','quad'],lp:['Leg press','quad'],hl:['Horizontal leg press','quad'],le:['Leg extension','quad'],sq:['Barbell back squat','quad'],lg:['Dumbbell lunges','quad'],
-pl:['Prone leg curl','ham'],sl:['Seated leg curl','ham'],rdl:['Romanian deadlift','ham'],
-gt:['Glute trainer','glu'],gk:['Glute kickback machine','glu'],ht:['Hip thrust machine','glu'],
-ad:['Hip adductor','add'],ab:['Hip abductor','abd'],sc:['Seated calf raise','calf'],scr:['Standing calf raise (hack machine)','calf'],ti:['Tibialis raise','tib'],tw:['Tibialis raise (wall)','tib']};
-const MU={};[['inc ibb ibd','uc'],['bar da cf','ul'],['fly vb cp','um'],['lat chin sap','lat'],['row sar brw','row'],['sh shd','trap'],['hy','lb'],['pt gt ht gk','glu'],['sp csp spd','sf'],['lr lrm lrd','sm'],['rd fp rcf','sr'],['tp to tde ez','tri'],['bc bcb bcd hc hcd sac','bi'],['fo wcu','ff'],['wcr','fb'],['cr ccr','abs'],['wc','obl'],['nf','nf'],['nb','nb'],['hk lg lp hl le sq','quad'],['pl sl rdl','ham'],['ad','add'],['ab','abd'],['sc scr','calf'],['ti tw','tib']].forEach(([k,m])=>k.split(' ').forEach(i=>MU[i]=m));
+tp:['Cable triceps pulldown','tri'],to:['Cable overhead triceps extension','tri'],smg:['Smith machine close-grip bench press','tri'],
+bc:['Cable biceps curl','bi'],hc:['Cable rope hammer curl','bi'],bcb:['Barbell curl','bi'],
+fo:['Cable wrist curl (front & back)','ff,fb','f'],fob:['Barbell wrist curl (front & back)','ff,fb','f'],
+cr:['Abdominal crunch','abs'],ccr:['Standing cable crunch','abs'],wc:['Cable woodchopper','obl'],pal:['Cable Pallof press','obl'],nf:['Neck front','nf'],nb:['Neck back','nb'],
+hk:['Hack squat','quad'],lp:['Leg press','quad'],hl:['Horizontal leg press','quad'],le:['Leg extension','quad'],ps:['Perfect squat machine','quad'],sml:['Smith machine split squat','quad'],
+pl:['Prone leg curl','ham'],sl:['Seated leg curl','ham'],smdl:['Smith machine Romanian deadlift','ham'],
+gt:['Glute trainer','glu'],gk:['Glute kickback machine','glu'],
+ad:['Hip adductor','add'],ab:['Hip abductor','abd'],sc:['Seated calf raise','calf'],scr:['Standing calf raise (hack machine)','calf'],ti:['Cable tibialis raise','tib'],tw:['Tibialis raise (wall)','tib']};
+// removed exercises: kept only so that any history logged for them survives as a custom exercise
+const OLD={lg:['Dumbbell lunges','quad'],sq:['Barbell back squat','quad'],bcd:['Dumbbell curl','bi'],hcd:['Dumbbell hammer curl','bi'],sac:['Single-arm cable curl','bi'],chin:['Chin assist','lat'],sap:['Single-arm cable pulldown','lat'],brw:['Barbell row','row'],sar:['Single-arm cable row','row'],tde:['Dumbbell overhead triceps extension','tri'],ez:['EZ-bar lying triceps extension','tri'],ibd:['Dumbbell incline press','uc'],spd:['Dumbbell shoulder press','sf'],rdl:['Romanian deadlift','ham'],shd:['Dumbbell shrugs','trap'],lrm:['Lateral raise machine','sm'],ht:['Hip thrust machine','glu'],wcu:['Barbell wrist curl','ff'],wcr:['Reverse wrist curl','fb'],smi:['Smith machine incline press','uc'],smb:['Smith machine bench press','um'],smd:['Smith machine decline press','ul'],sms:['Smith machine shoulder press','sf'],smu:['Smith machine upright row','sm'],smq:['Smith machine squat','quad'],smh:['Smith machine hip thrust','glu'],smc:['Smith machine calf raise','calf']};
+const MU={};[['inc pic ibb','uc'],['bar da cf','ul'],['fly vb cp cp3 fbb','um'],['lat pll plr','lat'],['row csr smr','row'],['sh smt cut','trap'],['hy smgm','lb'],['pt gt gk','glu'],['sp csp sp3','sf'],['lr lrd dsl','sm'],['rd fp rcf','sr'],['tp to smg','tri'],['bc bcb hc','bi'],['fo fob','ff'],['cr ccr','abs'],['wc pal','obl'],['nf','nf'],['nb','nb'],['hk lp hl le ps sml','quad'],['pl sl smdl','ham'],['ad','add'],['ab','abd'],['sc scr','calf'],['ti tw','tib']].forEach(([k,m])=>k.split(' ').forEach(i=>MU[i]=m));
 
 // ---------- default program: rotation pool per body part (machine & cable first)
-const DEF={uc:['inc','cp'],um:['fly','vb','cp'],ul:['bar','da','cf'],lat:['lat','chin','sap'],row:['row','sar'],trap:['sh'],lb:['hy','pt'],sf:['sp','csp'],sm:['lr','lrm'],sr:['rd','fp','rcf'],tri:['tp','to'],bi:['bc','hc','sac'],fa:['fo'],abs:['cr','ccr'],obl:['wc'],nf:['nf'],nb:['nb'],quad:['hk','lp','hl','le'],ham:['pl','sl'],glu:['gt','gk','ht'],add:['ad'],abd:['ab'],calf:['sc','scr'],tib:['ti','tw']};
+const DEF={uc:['inc','pic'],um:['fly','vb','cp','cp3'],ul:['bar','da','cf'],lat:['lat','pll','plr'],row:['row','csr'],trap:['sh','cut'],lb:['hy','pt'],sf:['sp','csp','sp3'],sm:['lr'],sr:['rd','fp','rcf'],tri:['tp','to'],bi:['bc','hc'],fa:['fo'],abs:['cr','ccr'],obl:['wc','pal'],nf:['nf'],nb:['nb'],quad:['hk','lp','hl','le','ps'],ham:['pl','sl'],glu:['gt','gk'],add:['ad'],abd:['ab'],calf:['sc','scr'],tib:['ti','tw']};
 const DD=[['بالاتنه ۱','uc um lat trap lb tri bi row sf'],['پایین‌تنه ۱','quad ham glu add calf fa nf abs obl'],['بالاتنه ۲','ul sm sr um bi tri lb uc lat'],['پایین‌تنه ۲','quad ham calf abd tib fa nb abs obl']];
+// every exercise of a body part is in its rotation (machine & cable ones first)
+for(const a of [...PUP,...PLO]){const all=Object.keys(E).filter(i=>{const p=E[i][1].split(',');return p.includes(a)||(a=='fa'&&(p.includes('ff')||p.includes('fb')))});DEF[a]=[...new Set([...(DEF[a]||[]),...all])]}
 const defDays=()=>DD.map(([n,p],j)=>({id:'d'+(j+1),n,parts:p.split(' ').map(a=>({a,ex:[...(DEF[a]||[])]}))}));
 
 // ---------- data recorded so far (from backup 2026-11-09)
@@ -169,10 +174,16 @@ function migrate(x){x=x&&typeof x=='object'?x:{};x.logs=x.logs||{};x.cx=x.cx||{}
   if(!x.days.length)x.days=defDays();
   for(const k in x.mu)if(x.mu[k]&&typeof x.mu[k]=='object')x.mu[k]=x.mu[k].m||'';
   delete x.ci;delete x.fin;delete x.add;x.v=2}
+ if(x.v<3){const ADD={uc:['pic'],um:['cp3'],lat:['pll','plr'],row:['csr'],sf:['sp3']};
+  x.days.forEach(d=>d.parts.forEach(p=>{if(p.a=='uc')p.ex=p.ex.filter(i=>i!='cp');(ADD[p.a]||[]).forEach(i=>{if(!p.ex.includes(i))p.ex.push(i)})}));x.v=3}
+ if(x.v<4){for(const id in OLD){if((x.logs[id]||[]).length){x.cx[id]=x.cx[id]||OLD[id]}else{delete x.logs[id];delete x.ov[id];delete x.mu[id];if(!x.cx[id])x.days.forEach(d=>d.parts.forEach(p=>{p.ex=p.ex.filter(i=>i!=id)}))}}
+  const ADD={quad:['ps'],trap:['cut'],obl:['pal']};x.days.forEach(d=>d.parts.forEach(p=>(ADD[p.a]||[]).forEach(i=>{if(!p.ex.includes(i))p.ex.push(i)})));x.rest=x.rest||{};x.v=4}
+ if(x.v<5){x.days.forEach(d=>d.parts.forEach(p=>{p.ex=p.ex.filter(i=>!(i in OLD));(DEF[p.a]||[]).forEach(i=>{if(!p.ex.includes(i))p.ex.push(i)})}));x.v=5}
  for(const id in x.logs)x.logs[id].sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:(a.t||0)-(b.t||0));
  return x}
 function load(){try{const s=localStorage.getItem('gymlog');if(s)return migrate(JSON.parse(s))}catch(e){}return migrate({})}
 let db=load();
+const rmin=()=>Math.max(5,+db.rmin||30),restOf=id=>Math.max(+(db.rest||{})[id]||0,rmin());
 const save=()=>{try{localStorage.setItem('gymlog',JSON.stringify(db))}catch(e){}};save();
 
 // ---------- exercise helpers
@@ -198,10 +209,10 @@ function curIdx(){const T=D();if(db.sel&&db.sel.d==T){const j=db.days.findIndex(
 
 // ---------- rotation: for each body part suggest the exercise after the one done last time
 function plan(d){const used=new Set(),out=d.parts.map(p=>{const dn=[...p.ex,...pool(p.a)].find(i=>!used.has(i)&&tod(i));if(dn)used.add(dn);return{p,dn}});
- out.forEach(o=>{if(o.dn)return;const ex=o.p.ex.length?o.p.ex:pool(o.p.a);if(!ex.length)return;let li=-1,ld='';
-  ex.forEach((i,j)=>{const l=lst(i);if(l&&l.d>=ld){ld=l.d;li=j}});
-  for(let k=1;k<=ex.length;k++){const c=ex[(li+k)%ex.length];if(!used.has(c)){o.s=c;used.add(c);break}}
-  if(!o.s)o.s=ex[(li+1)%ex.length]});
+ out.forEach(o=>{if(o.dn)return;const ex=o.p.ex.length?o.p.ex:pool(o.p.a);if(!ex.length)return;
+  const c=ex.filter(i=>!used.has(i)),f=c.length?c:ex;let b=null,bd=null;
+  for(const i of f){const l=lst(i),d=l?l.d:'';if(b===null||d<bd){b=i;bd=d}}
+  o.s=b;used.add(b)});
  return out}
 
 // ---------- navigation
@@ -243,8 +254,10 @@ function exs(){const id=v.i,e=X(id),l=lst(id),t=tod(id),b=t||l,m=md(id),hs=(db.l
  if(t)h+=`<div class="hint ok">امروز ثبت شده. اگه دوباره ذخیره کنی، ثبت امروز جایگزین میشه.</div>`;
  else if(l)h+=`<div class="hint ${l.ok?'ok':'w'}">${l.ok?'دفعه قبل ۱۰ تکرار کامل شد 👍 این بار وزنه رو سنگین‌تر کن':'دفعه قبل ست آخر '+fn(l.r??'?')+' تکرار زدی. همین وزنه‌ها رو ادامه بده'}</div>`;
  else h+=`<div class="hint">اولین بار برای این حرکت. وزنه‌ها رو وارد کن.</div>`;
- h+=`<button id="tm" class="timer" onclick="rt()"><svg viewBox="0 0 60 60"><circle class="rb" cx="30" cy="30" r="25"/><circle id="rg" class="rf" cx="30" cy="30" r="25" stroke-dasharray="${RC}" stroke-dashoffset="0"/></svg><div><b id="tt">تایمر استراحت</b><small id="ts">بزن تا ۳۰ ثانیه بشمره</small></div></button>`;
- h+=`<div class="sec">وزنه‌ها${l&&!t?' (دفعه قبل)':''}</div><div class="sets">${LB[m].map((x,j)=>`<label class="set ${m=='1'?'one':''}">${x}<input id="w${j}" autocomplete="off" value="${b&&b.w[j]!=null?b.w[j]:''}"></label>`).join('')}</div>`;
+ h+=`<button id="tm" class="timer" onclick="rt()"><svg viewBox="0 0 60 60"><circle class="rb" cx="30" cy="30" r="25"/><circle id="rg" class="rf" cx="30" cy="30" r="25" stroke-dasharray="${RC}" stroke-dashoffset="0"/></svg><div><b id="tt">تایمر استراحت · ${fn(restOf(id))} ثانیه</b><small id="ts">بزن تا شمارش شروع بشه</small></div></button>`;
+ const wi=(x,j)=>`<label class="set ${m=='1'?'one':''}">${x}<input id="w${j}" autocomplete="off" value="${b&&b.w[j]!=null?b.w[j]:''}"></label>`;
+ h+=m=='f'?`<div class="sec">جلو${l&&!t?' (دفعه قبل)':''}</div><div class="sets">${[0,1,2].map(j=>wi('ست '+fn(j+1),j)).join('')}</div><div class="sec">پشت</div><div class="sets">${[3,4,5].map(j=>wi('ست '+fn(j-2),j)).join('')}</div>`
+ :`<div class="sec">وزنه‌ها${l&&!t?' (دفعه قبل)':''}</div><div class="sets">${LB[m].map(wi).join('')}</div>`;
  h+=`<div class="sec">نتیجه</div><div class="seg"><button id="r1" class="${R===1?'on1':''}" onclick="seg(1)">👍 ۱۰ تکرار کامل</button><button id="r0" class="${R===0?'on0':''}" onclick="seg(0)">ناقص</button></div>
  <div id="rb" class="reps" style="display:${R===0?'flex':'none'}"><span>تکرار ست آخر</span><div class="stp"><button onclick="sp(-1)">−</button><input id="r" type="number" inputmode="numeric" value="${t&&t.r||''}"><button onclick="sp(1)">+</button></div></div>
  <button class="btn pri" onclick="sv()">ذخیره</button>`;
@@ -265,9 +278,12 @@ function edit(){const id=v.i,e=X(id),m=mus(id),og=(l,t)=>`<optgroup label="${t}"
  <a class="gs" target="_blank" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(e[0]+' exercise')}">جستجوی تصویر در گوگل</a>
  <label class="f">اسم حرکت<input id="en" value="${e[0].replace(/"/g,'&quot;')}"></label>
  <label class="f">ماهیچه درگیر<select id="em"><option value="">—</option>${og(MUP,'بالاتنه')}${og(MLO,'پایین‌تنه')}</select></label>
+ <label class="f">زمان استراحت این حرکت (ثانیه)<input id="er" type="number" inputmode="numeric" min="5" placeholder="پیش‌فرض: ${fn(rmin())}" value="${(db.rest||{})[id]||''}"></label>
+ <div>${[30,45,60,90,120,180].map(s=>`<button class="chip" onclick="$('#er').value=${s}">${fn(s)}</button>`).join('')}</div>
+ <p class="mute" style="margin:6px 4px 0">اگه خالی بمونه یا کمتر از حداقل تنظیمات (${fn(rmin())} ثانیه) باشه، همون حداقل اعمال میشه.</p>
  <button class="btn pri" onclick="se('${id}')">ذخیره</button><button class="btn" onclick="rs('${id}')">بازگردانی مشخصات پیش‌فرض</button>`}
-const se=id=>{const b=E[id]||db.cx[id];db.ov[id]={n:$('#en').value.trim()||b[0]};db.mu[id]=$('#em').value;save();go('ex',{i:id,k:v.k,a:v.a,o:v.o})};
-const rs=id=>{delete db.ov[id];delete db.mu[id];save();render()};
+const se=id=>{const b=E[id]||db.cx[id];db.ov[id]={n:$('#en').value.trim()||b[0]};db.mu[id]=$('#em').value;const r=+$('#er').value;db.rest=db.rest||{};if(r>0)db.rest[id]=Math.round(r);else delete db.rest[id];save();go('ex',{i:id,k:v.k,a:v.a,o:v.o})};
+const rs=id=>{delete db.ov[id];delete db.mu[id];if(db.rest)delete db.rest[id];save();render()};
 
 // ---------- build program
 function prog(){return hdr('ساخت برنامه','','ترتیب روزها همون ترتیب نوبت تمرینه')+(db.days.length?'':`<div class="hint">هنوز روزی نساختی. با دکمه‌ی پایین اولین روز رو بساز.</div>`)+
@@ -303,7 +319,7 @@ function add(){const og=(l,t)=>`<optgroup label="${t}">${l.map(a=>`<option value
  return hdr('حرکت جدید',v.k?`go('pick',{k:'${v.k}',a:'${v.a}'})`:`go('lib')`)+`<label class="f">بخش بدن<select id="ar">${og(PUP,'بالاتنه')}${og(PLO,'پایین‌تنه')}</select></label><label class="f">اسم حرکت<input id="nm"></label>
  <label class="f">نوع وزنه<select id="md"><option value="3">سه وزنه (هر ست جدا)</option><option value="1">یک وزنه برای هر ۳ ست</option></select></label><button class="btn pri" onclick="addx()">افزودن</button>`}
 function addx(){const n=$('#nm').value.trim();if(!n)return alert('اسم حرکت رو بنویس');const id='c'+Date.now(),a=$('#ar').value;db.cx[id]=[n,a,$('#md').value];db.mu[id]=a=='fa'?'ff':a;
- if(v.k&&v.a){const p=dy(v.k).parts.find(p=>p.a==v.a);if(p&&pool(v.a).includes(id))p.ex.push(id)}save();v.k?go('pick',{k:v.k,a:v.a}):go('lib')}
+ db.days.forEach(d=>d.parts.forEach(p=>{if(pool(p.a).includes(id)&&!p.ex.includes(id))p.ex.push(id)}));save();v.k?go('pick',{k:v.k,a:v.a}):go('lib')}
 
 // ---------- history & settings
 function hist(){const g={};for(const i in db.logs)db.logs[i].forEach(e=>(g[e.d]=g[e.d]||[]).push([i,e]));const ks=Object.keys(g).sort().reverse();
@@ -312,8 +328,11 @@ function hist(){const g={};for(const i in db.logs)db.logs[i].forEach(e=>(g[e.d]=
 function sett(){return hdr('تنظیمات')+`<div class="card"><b>پشتیبان‌گیری</b><small style="display:block">آخرین پشتیبان: ${db.bk?fd(db.bk):'هنوز نگرفتی'}</small></div>
  <button class="btn pri" onclick="exp()">خروجی گرفتن (پشتیبان)</button><button class="btn" onclick="$('#f').click()">برگردوندن اطلاعات از فایل</button>
  <input id="f" type="file" accept=".json,application/json" hidden onchange="imp(this.files[0])">
+ <div class="sec">تایمر استراحت</div><div class="card"><b>حداقل زمان استراحت</b><small style="display:block">برای همه‌ی حرکت‌ها اعمال میشه، مگه اینکه برای یه حرکت از چرخ‌دنده‌ی خودش زمان بیشتری گذاشته باشی.</small>
+ <div class="reps" style="box-shadow:none;padding:10px 0 0;margin:0"><span>ثانیه</span><div class="stp"><button onclick="srm(-5)">−</button><input id="rm" type="number" inputmode="numeric" value="${rmin()}" onchange="srm(0,this.value)"><button onclick="srm(5)">+</button></div></div></div>
  <div class="sec">برنامه</div><button class="btn" onclick="rdef()">بازگردانی برنامه‌ی پیش‌فرض ۴ روزه</button>
- <p class="mute" style="text-align:center;margin-top:18px;font-size:12px">Gym Log · نسخه ۹ · داده‌ها فقط روی همین گوشی ذخیره میشن</p>`}
+ <p class="mute" style="text-align:center;margin-top:18px;font-size:12px">Gym Log · نسخه ۱۲ · داده‌ها فقط روی همین گوشی ذخیره میشن</p>`}
+const srm=(d,x)=>{db.rmin=Math.max(5,Math.min(600,Math.round(x!=null?+x||30:rmin()+d)));save();render(1)};
 const rdef=()=>{if(confirm('روزهای تمرین با برنامه‌ی پیش‌فرض ۴ روزه جایگزین بشن؟ تاریخچه‌ی وزنه‌ها حفظ میشه.')){db.days=defDays();db.sel=null;save();tab('home')}};
 async function exp(){const b=new Blob([JSON.stringify(db)],{type:'application/json'}),n='gym-backup-'+D()+'.json',f=new File([b],n,{type:'application/json'});
  if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f]})}catch(e){return}}else{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;a.click()}
@@ -331,7 +350,7 @@ async function si(id,f){if(!f)return;try{const im=await createImageBitmap(f),c=d
  const u=c.toDataURL('image/jpeg',.82),d=await idb();d.transaction('i','readwrite').objectStore('i').put(u,id);ph(u)}catch(e){alert('ذخیره‌ی عکس نشد')}}
 
 // ---------- rest timer (30 s) with sound + notification
-let TE=0,TI=0,FD=1,AC=null,WL=null;const TL=30;
+let TE=0,TI=0,FD=1,AC=null,WL=null,TL=30;
 const askN=()=>{try{if('Notification' in window&&Notification.permission=='default')Notification.requestPermission()}catch(e){}};
 const lock=async()=>{try{if(navigator.wakeLock){if(WL)WL.release().catch(()=>{});WL=await navigator.wakeLock.request('screen')}}catch(e){}};
 const beep=()=>{try{[0,.35,.7].forEach(d=>{const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime+d;o.frequency.value=880;o.connect(g);g.connect(AC.destination);g.gain.setValueAtTime(.4,t);g.gain.exponentialRampToValueAtTime(.001,t+.25);o.start(t);o.stop(t+.3)})}catch(e){}};
@@ -340,7 +359,7 @@ const fin=async()=>{beep();try{navigator.vibrate&&navigator.vibrate([200,100,200
 function tick(){const t=$('#tt'),s=$('#ts'),g=$('#rg'),b=$('#tm');if(!TE){return}const r=Math.ceil((TE-Date.now())/1000);
  if(r>0){if(t){t.textContent=fn(r)+' ثانیه';s.textContent='در حال استراحت… بزن تا از اول بشمره';g.style.strokeDashoffset=RC*(1-(TE-Date.now())/(TL*1000));b.className='timer run'}}
  else{clearInterval(TI);TE=0;if(!FD){FD=1;fin()}if(t){t.textContent='استراحت تموم شد ✓';s.textContent='ست بعدی رو شروع کن';g.style.strokeDashoffset=RC;b.className='timer fin'}}}
-const rt=()=>{if(TI)clearInterval(TI);try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();AC.resume()}catch(e){}askN();lock();TE=Date.now()+TL*1000;FD=0;tick();TI=setInterval(tick,250)};
+const rt=()=>{if(TI)clearInterval(TI);try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();AC.resume()}catch(e){}askN();lock();TL=restOf(v.i);TE=Date.now()+TL*1000;FD=0;tick();TI=setInterval(tick,250)};
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()});
 
 // ---------- shell
