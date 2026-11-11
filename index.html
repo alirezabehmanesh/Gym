@@ -459,7 +459,10 @@ const grp=src=>{const g={};for(const i in src)src[i].forEach(e=>(g[e.d]=g[e.d]||
 let HO={};const th=k=>{HO[k]=!HO[k];render(1)};
 const dayList=(src,pre)=>{const g=grp(src),ks=Object.keys(g).sort().reverse();return ks.map(d=>{const L=g[d],p=L.map(x=>x[1].p).find(x=>dy(x)),dn=p&&dy(p),k=pre+d,op=HO[k];
  return`<div class="part ${op?'open':''}"><div class="ph"><button class="pmain" onclick="th('${k}')"><span class="num">${fn(+d.slice(8))}</span><div class="pt"><b>${fd(d)}</b><small>${dn?dn.n+' · ':''}${fn(L.length)} حرکت</small></div></button><button class="swap" onclick="th('${k}')">${CH}</button></div>
- <div class="pl">${L.map(([i,e])=>`<button class="row" onclick='go("ex",{i:"${i}",o:"lib"})'><div><b dir="ltr">${X(i)[0]}</b><small dir="ltr">${logTxt(i,e)}</small></div>${e.ok?'<span class="tag up">👍</span>':''}</button>`).join('')}</div></div>`}).join('')};
+ <div class="pl">${L.map(([i,e])=>`<div class="row"><div onclick='go("ex",{i:"${i}",o:"lib"})'><b dir="ltr">${X(i)[0]}</b><small dir="ltr">${logTxt(i,e)}</small></div>${e.ok?'<span class="tag up">👍</span>':''}<button class="mini x" onclick="delRec('${pre}','${i}','${d}')">حذف</button></div>`).join('')}<button class="more" style="color:#c0392b" onclick="delDay('${pre}','${d}')">حذف همه‌ی رکوردهای این روز</button></div></div>`}).join('')};
+const SRC=pre=>pre=='a'?db.arch:db.logs;
+const delRec=(pre,id,d)=>{const s=SRC(pre);if(!confirm('رکورد «'+X(id)[0]+'» در '+fd(d)+' پاک بشه؟ این کار برگشت نداره.'))return;s[id]=(s[id]||[]).filter(e=>e.d!=d);if(!s[id].length)delete s[id];save();render(1)};
+const delDay=(pre,d)=>{const s=SRC(pre),n=Object.keys(s).filter(i=>s[i].some(e=>e.d==d)).length;if(!confirm('همه‌ی '+fn(n)+' رکورد '+fd(d)+' پاک بشن؟ این کار برگشت نداره.'))return;for(const i in s){s[i]=s[i].filter(e=>e.d!=d);if(!s[i].length)delete s[i]}delete HO[pre+d];save();render(1)};
 function hist(){const n=Object.keys(grp(db.logs)).length;
  return hdr('تاریخچه','',fn(n)+' روز تمرین')+(n?'':'<div class="empty">هنوز رکوردی ثبت نشده</div>')+dayList(db.logs,'h')+(Object.keys(db.arch).length?`<button class="btn" onclick="go('arch')">سوابق قدیمی</button>`:'')}
 const arch=()=>hdr('سوابق قدیمی',`tab('hist')`,'مدل قبلی: وزنه‌ی متفاوت در هر ست')+dayList(db.arch,'a');
@@ -469,7 +472,7 @@ function sett(){return hdr('تنظیمات')+`<div class="card"><b>پشتیبا�
  <div class="sec">تایمر استراحت</div><div class="card"><b>زمان استراحت پیش‌فرض</b><small style="display:block">برای حرکت‌هایی که توی صفحه‌ی خودشون زمان دیگه‌ای انتخاب نکردی.</small>
  <div class="restrow" style="margin:10px 0 0"><label style="box-shadow:none;padding:0;background:none">استراحت<select onchange="db.rdef=+this.value;save()">${RO.map(s=>`<option value="${s}" ${s==(+db.rdef||120)?'selected':''}>${fn(s)} ثانیه</option>`).join('')}</select></label></div></div>
  <div class="sec">برنامه</div><button class="btn" onclick="rdef()">بازگردانی برنامه‌ی پیش‌فرض ۴ روزه</button><button class="btn red" onclick="rall()">بازگشت همه‌ی بخش‌ها به حالت پیش‌فرض</button>
- <p class="mute" style="text-align:center;margin-top:18px;font-size:12px">Gym Log · نسخه ۱۴ · داده‌ها فقط روی همین گوشی ذخیره میشن</p>`}
+ <p class="mute" style="text-align:center;margin-top:18px;font-size:12px">Gym Log · نسخه ۱۵ · داده‌ها فقط روی همین گوشی ذخیره میشن</p>`}
 const rall=()=>{if(!confirm('همه‌ی بخش‌های اپ به حالت پیش‌فرض برگردن؟\n\n• برنامه‌ی ۴ روزه‌ی پیش‌فرض\n• اسم، ماهیچه، حداکثر تکرار، پله‌ی وزنه و زمان استراحت همه‌ی حرکت‌ها\n• حرکت‌هایی که خودت ساختی و رکوردی ندارن حذف میشن\n\nرکوردها، سوابق قدیمی و عکس‌ها حفظ میشن.'))return;
  stopTick();relLock();db.days=defDays();db.ov={};db.mu={};db.mx={};db.step={};db.rest={};db.rdef=120;db.sel=null;db.run=null;
  for(const id in db.cx)if(!(db.logs[id]||[]).length&&!(db.arch[id]||[]).length)delete db.cx[id];
