@@ -117,11 +117,11 @@ label.f input,label.f select{display:block;width:100%;margin-top:6px;padding:13p
 /* v13: intro / set / rest / results */
 .exn{font-size:22px;font-weight:800;line-height:1.25;text-align:right;margin:2px 0 0}
 .c2.gr{background:#eef2f7;color:#4a5670}
-.intro{display:flex;gap:12px;align-items:flex-start;margin:8px 0 4px}
-.pbig{width:46%;flex:none;aspect-ratio:3/4;border-radius:24px;background:#e6ecfb center/cover no-repeat;box-shadow:var(--sh);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:34px;color:var(--mute)}
+.intro{display:flex;gap:12px;align-items:stretch;margin:16px 0 4px}
+.pbig{width:44%;flex:none;align-self:stretch;min-height:200px;border-radius:24px;background:#e6ecfb center/cover no-repeat;box-shadow:var(--sh);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:34px;color:var(--mute)}
 .pbig small{font-size:12px;font-weight:600}
 .icol{flex:1;min-width:0;display:flex;flex-direction:column;gap:9px}
-.yt{display:flex;align-items:center;justify-content:center;gap:6px;background:#ff1f3d;color:#fff;border-radius:14px;padding:10px 6px;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 6px 14px rgba(255,31,61,.25)}
+.yt{margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px;background:#ff1f3d;color:#fff;border-radius:14px;padding:10px 6px;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 6px 14px rgba(255,31,61,.25)}
 .yt svg{width:20px;height:20px;fill:#fff;flex:none}
 .ytl{display:inline-flex;align-items:center;gap:5px;margin-top:8px;color:#e0102c;font-size:13px;font-weight:700;text-decoration:none}.ytl svg{width:18px;height:18px;fill:#ff1f3d}
 .kv{background:var(--card);border-radius:16px;padding:9px 11px;box-shadow:var(--sh)}
@@ -169,6 +169,7 @@ label.f input,label.f select{display:block;width:100%;margin-top:6px;padding:13p
 .part .ph{padding:0}
 .pmain{flex:1;display:flex;align-items:center;gap:12px;min-width:0;padding:14px 4px 14px 12px}
 .swap{width:40px;align-self:stretch;flex:none;display:flex;align-items:center;justify-content:center;border-inline-start:1px solid var(--line)}
+.brow{display:flex;gap:10px;margin-top:6px}.brow .btn{flex:1;margin:6px 0}
 </style></head><body><div id="app"></div>
 <script>
 // ---------- helpers
@@ -237,6 +238,8 @@ function migrate(x){x=x&&typeof x=='object'?x:{};x.logs=x.logs||{};x.cx=x.cx||{}
  if(x.v<5){x.days.forEach(d=>d.parts.forEach(p=>{p.ex=p.ex.filter(i=>!(i in OLD));(DEF[p.a]||[]).forEach(i=>{if(!p.ex.includes(i))p.ex.push(i)})}));x.v=5}
  if(x.v<6){['chin','sar'].forEach(id=>delete x.cx[id]);x.days.forEach(d=>d.parts.forEach(p=>(DEF[p.a]||[]).forEach(i=>{if(!p.ex.includes(i))p.ex.push(i)})));x.rdef=120;delete x.rmin;x.rest={};x.v=6}
  x.mx=x.mx||{};x.step=x.step||{};x.rest=x.rest||{};delete x.ov.fo;
+ if(!(x.v>=7)){x.arch=x.arch||{};for(const id in x.logs){const o=x.logs[id].filter(e=>!e.rp);if(o.length)x.arch[id]=(x.arch[id]||[]).concat(o);x.logs[id]=x.logs[id].filter(e=>e.rp);if(!x.logs[id].length)delete x.logs[id]}x.v=7}
+ x.arch=x.arch||{};
  for(const id in x.logs)x.logs[id].sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:(a.t||0)-(b.t||0));
  return x}
 function load(){try{const s=localStorage.getItem('gymlog');if(s)return migrate(JSON.parse(s))}catch(e){}return migrate({})}
@@ -264,7 +267,7 @@ const isN=e=>!!(e&&e.rp);
 const nw=s=>String(s).split('+').reduce((a,b)=>a+(parseFloat(b)||0),0);
 const w1=x=>String(Math.round(x*100)/100);
 const stepOf=id=>+db.step[id]||2.5;
-const lastW=id=>{const l=lst(id);if(!l)return lanes(id).map(()=>'');if(isN(l))return l.w.slice();const w=l.w;return md(id)=='f'?[w[1]??w[0],w[4]??w[3]??'']:[w.length>=3?w[1]:w[0]]};
+const lastW=id=>{const l=lst(id);if(l&&isN(l))return l.w.slice();const a=l||(db.arch[id]||[]).slice(-1)[0];if(!a)return lanes(id).map(()=>'');const w=a.w;return md(id)=='f'?[w[1]??w[0],w[4]??w[3]??'']:[w.length>=3?w[1]:w[0]]};
 const AST=['da','chin'];// assisted machines: less assistance = harder
 const nextW=id=>{const l=lst(id),w=lastW(id),s=AST.includes(id)?-1:1;return isN(l)&&l.ok?w.map(x=>x===''?'':w1(Math.max(0,nw(x)+s*stepOf(id)))):w};
 const okReps=(id,e)=>e.rp.every(a=>a.length==3&&a.every(r=>r>=mx(id)));
@@ -278,7 +281,7 @@ const tf=s=>s>=60?fn(Math.floor(s/60))+':'+fn(String(s%60).padStart(2,'0')):fn(s
 
 // ---------- which day is today: next one after the last trained day
 function autoIdx(){const n=db.days.length;if(!n)return -1;let b=null;
- for(const id in db.logs)for(const e of db.logs[id]){const j=db.days.findIndex(d=>d.id==e.p);if(j<0)continue;if(!b||e.d>b.d||(e.d==b.d&&(e.t||0)>=b.t))b={d:e.d,t:e.t||0,j}}
+ for(const src of [db.logs,db.arch])for(const id in src)for(const e of src[id]){const j=db.days.findIndex(d=>d.id==e.p);if(j<0)continue;if(!b||e.d>b.d||(e.d==b.d&&(e.t||0)>=b.t))b={d:e.d,t:e.t||0,j}}
  return !b?0:b.d==D()?b.j:(b.j+1)%n}
 function curIdx(){const T=D();if(db.sel&&db.sel.d==T){const j=db.days.findIndex(d=>d.id==db.sel.id);if(j>=0)return j}return autoIdx()}
 
@@ -328,23 +331,21 @@ const gin=()=>go('in',ctx()),gex=()=>go('ex',ctx()),ged=f=>go('edit',{...ctx(),f
 const backEx=()=>v.o=='home'?`tab('home')`:v.o=='lib'?`go('lib',{q:'${(v.q||'').replace(/['"\\]/g,'')}'})`:v.k?`go('day',{k:'${v.k}'})`:`tab('lib')`;
 const dchip=()=>{const d=v.k&&dy(v.k);return d&&v.o=='home'?`<span class="c2">${d.n} · ${A[v.a]||''}</span>`:''};
 const chips=id=>`<div class="chips"><span class="c2 ${tier(id)=='بالاتنه'?'':'lo'}">${tier(id)}</span>${mus(id)?`<span class="c2 gr">${A[mus(id)]}</span>`:''}</div>`;
-const histBlock=id=>{const hs=(db.logs[id]||[]).slice(-6).reverse();return hs.length?`<div class="sec">سابقه</div><div class="card" style="padding:6px 16px">${hs.map(x=>`<div class="hl"><span class="mute">${fd(x.d)}</span><span class="w">${logTxt(id,x)}</span></div>`).join('')}</div>`:''};
-function lastBlock(id){const l=lst(id),L=lanes(id),M=mx(id);if(!l)return`<b class="mute" style="font-size:14px">هنوز ثبت نشده</b>`;
- if(isN(l))return L.map((ln,j)=>`<div>${ln?`<small>${ln} </small>`:''}<b class="wv">${l.w[j]}</b> <small>kg</small><div class="pills">${l.ok?'<span class="rp g">👍</span>':[0,1,2].map(s=>{const r=(l.rp[j]||[])[s];return`<span class="rp ${r>=M?'g':''}">${r==null?'—':fn(r)}</span>`}).join('')}</div></div>`).join('')+`<small>${fd(l.d)}</small>`;
- return`<b class="wv" style="font-size:14px">${fw(id,l)}</b><div class="pills"><span class="rp ${l.ok?'g':''}">${l.ok?'👍':fn(l.r??'?')+' تکرار'}</span></div><small>${fd(l.d)} · مدل قبلی</small>`}
+const histBlock=id=>{const hs=(db.logs[id]||[]).slice(-6).reverse(),ar=db.arch[id]||[];return(hs.length?`<div class="sec">سابقه</div><div class="card" style="padding:6px 16px">${hs.map(x=>`<div class="hl"><span class="mute">${fd(x.d)}</span><span class="w">${logTxt(id,x)}</span></div>`).join('')}</div>`:'')+
+ (ar.length?`<button class="btn sm" onclick="OLDX=OLDX==v.i?null:v.i;render(1)">سوابق قدیمی (${fn(ar.length)})</button>`+(OLDX==id?`<div class="card" style="padding:6px 16px">${ar.slice().reverse().map(x=>`<div class="hl"><span class="mute">${fd(x.d)}</span><span class="w">${logTxt(id,x)}</span></div>`).join('')}</div>`:''):'')};
+let OLDX=null;
+function lastBlock(id){const l=lst(id),L=lanes(id),M=mx(id);if(!l||!isN(l))return`<b class="mute" style="font-size:14px">هنوز رکوردی ثبت نشده</b>`;
+ return L.map((ln,j)=>`<div>${ln?`<small>${ln}</small>`:''}<div class="pills">${l.ok?'<span class="rp g">👍</span>':[0,1,2].map(s=>{const r=(l.rp[j]||[])[s];return`<span class="rp ${r>=M?'g':''}">${r==null?'—':fn(r)}</span>`}).join('')}</div></div>`).join('')+`<small>${fd(l.d)}</small>`}
 
 // ---------- exercise intro page (before starting)
 function intro(){const id=v.i,e=X(id),L=lanes(id),W=nextW(id),r=db.run,l=lst(id),ro=[...new Set([...RO,restOf(id)])].sort((a,b)=>a-b);
  let h=hdr('',backEx(),'',dchip());
- h+=`<h2 class="exn" dir="ltr">${e[0]}</h2>${chips(id)}`;
+ h+=`<h2 class="exn" dir="ltr">${e[0]}</h2>${chips(id)}<a class="yt" href="${YT(id)}" target="_blank" rel="noopener">${YTI}دیدن در یوتیوب</a>`;
  h+=`<div class="intro"><div id="ph" class="pbig" onclick="pz()"></div><div class="icol">
-  <a class="yt" href="${YT(id)}" target="_blank" rel="noopener">${YTI}دیدن در یوتیوب</a>
   <div class="kv"><small>حداکثر تکرار</small><b>${fn(mx(id))}</b> <small>× ۳ ست${side(id)?' · هر طرف':''}</small></div>
   <div class="kv"><small>آخرین وضعیت</small>${lastBlock(id)}</div>
   <div class="kv"><small>وزنه‌ی این جلسه (kg)</small>${L.map((ln,j)=>`<div class="nstp">${ln?`<span>${ln}</span>`:''}<button onclick="sw(${j},-1)">−</button><input id="nw${j}" value="${W[j]??''}" autocomplete="off"><button onclick="sw(${j},1)">+</button></div>`).join('')}</div>
  </div></div>`;
- if(isN(l)&&l.ok&&!tod(id))h+=`<div class="hint ok">دفعه‌ی قبل هر سه ست به حداکثر رسید 👍 ${AST.includes(id)?'وزنه‌ی کمکی یک پله کمتر':'وزنه یک پله سنگین‌تر'} پیشنهاد شده.</div>`;
- else if(l&&!isN(l)&&!tod(id))h+=`<div class="hint">از این به بعد وزنه توی هر سه ست ثابته. وزنه‌ی این جلسه رو با − و + تنظیم کن.</div>`;
  h+=`<div class="restrow"><label>استراحت<select onchange="db.rest[v.i]=+this.value;save()">${ro.map(s=>`<option value="${s}" ${s==restOf(id)?'selected':''}>${fn(s)} ثانیه</option>`).join('')}</select></label><button class="gearb" onclick="ged('in')">${GE}</button></div>`;
  h+=`<button class="btn pri big" onclick="start()">${r&&r.id==id?'ادامه‌ی حرکت':'شروع'}</button>`;
  if(tod(id))h+=`<button class="btn sm" onclick="gex()">نتیجه‌ی امروز</button>`;
@@ -370,9 +371,9 @@ function run(){const r=db.run;if(!r)return intro();const id=r.id,L=lanes(id),M=m
   h+=`<div class="stt" style="font-size:24px">${dn?'استراحت تموم شد':'استراحت'}</div>`;
   h+=`<div class="ringw ${dn?'dn pop':'breath'}"><svg viewBox="0 0 240 240"><defs><linearGradient id="rgd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a55ff"/><stop offset="1" stop-color="#8fa0ff"/></linearGradient></defs><circle class="rb" cx="120" cy="120" r="104"/><circle id="rr" class="rf" cx="120" cy="120" r="104" stroke-dasharray="${RC2}" stroke-dashoffset="${dn?0:RC2*(1-left/(r.rt*1000))}"/></svg><div class="ctr"><b id="rn" dir="ltr">${dn?'✓':tf(Math.ceil(left/1000))}</b><small>${dn?'آماده‌ی ست '+SN[r.set+1]:'از '+tf(r.rt)+(r.rt<60?' ثانیه':'')}</small></div></div>`;
   h+=`<div class="prev">ست ${SN[r.set]} ثبت شد: ${L.map((ln,j)=>(ln?ln+' ':'')+fn(r.rp[j][r.set])).join(' · ')} تکرار با <span class="wv">${r.w.join(' / ')}</span> kg</div>`;
-  h+=dn?`<button id="nx" class="btn pri big pop" onclick="nextSet()">ست ${SN[r.set+1]}</button>`:`<button class="skip" onclick="skipRest()">رد کردن استراحت</button>`;
+  h+=`<div class="brow"><button ${dn?'id="nx" class="btn pri pop"':'class="btn"'} onclick="${dn?'nextSet()':'skipRest()'}">${dn?'شروع ست '+SN[r.set+1]:'رد کردن استراحت'}</button><button class="btn red" onclick="cancelRun()">لغو حرکت</button></div>`;
  }
- return h+`<button class="skip" style="margin-top:22px;color:#c0392b" onclick="cancelRun()">لغو این حرکت</button>`}
+ return h+(r.ph=='set'?`<button class="skip" style="margin-top:22px;color:#c0392b" onclick="cancelRun()">لغو این حرکت</button>`:'')}
 const rq=(j,d)=>{const i=$('#rp'+j);if(i.value===''){i.value=i.dataset.b;return}i.value=Math.max(0,(+i.value||0)+d)};
 const ew=()=>{const r=db.run;lanes(r.id).forEach((ln,j)=>{const x=prompt('وزنه'+(ln?' ('+ln+')':'')+' — برای هر سه ست',r.w[j]);if(x&&x.trim())r.w[j]=x.trim()});save();render()};
 function doneSet(){const r=db.run,L=lanes(r.id),vals=L.map((_,j)=>$('#rp'+j).value.trim());
@@ -381,7 +382,7 @@ function doneSet(){const r=db.run,L=lanes(r.id),vals=L.map((_,j)=>$('#rp'+j).val
  if(r.set<2){r.ph='rest';r.rt=restOf(r.id);r.re=Date.now()+r.rt*1000;r.fd=0;save();try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();AC.resume()}catch(e){}askN();lock();startTick();render()}
  else finishRun()}
 const nextSet=()=>{const r=db.run;r.set++;r.ph='set';save();render()};
-const skipRest=()=>{const r=db.run;r.re=Date.now();r.fd=1;stopTick();relLock();save();render()};
+const skipRest=()=>{const r=db.run;r.fd=1;stopTick();relLock();nextSet()};
 function finishRun(){const r=db.run,id=r.id,e={d:D(),p:r.o=='home'?r.k:'',w:r.w,rp:r.rp,t:Date.now()};e.ok=okReps(id,e);
  db.logs[id]=(db.logs[id]||[]).filter(x=>x.d!=D());db.logs[id].push(e);if(r.o=='home'&&db.sel&&db.sel.id==r.k)db.sel=null;
  db.run=null;stopTick();relLock();save();go('ex',{i:id,k:r.k,a:r.a,o:r.o})}
@@ -454,16 +455,26 @@ function addx(){const n=$('#nm').value.trim();if(!n)return alert('اسم حرک�
  db.days.forEach(d=>d.parts.forEach(p=>{if(pool(p.a).includes(id)&&!p.ex.includes(id))p.ex.push(id)}));save();v.k?go('pick',{k:v.k,a:v.a}):go('lib')}
 
 // ---------- history & settings
-function hist(){const g={};for(const i in db.logs)db.logs[i].forEach(e=>(g[e.d]=g[e.d]||[]).push([i,e]));const ks=Object.keys(g).sort().reverse();
- return hdr('تاریخچه','',fn(ks.length)+' جلسه')+(ks.length?'':'<div class="empty">هنوز چیزی ثبت نشده</div>')+ks.slice(0,80).map(d=>{const p=g[d].map(x=>x[1].p).find(x=>dy(x)),dn=p&&dy(p);
- return`<div class="card"><div class="hday"><b>${fd(d)}</b>${dn?`<span class="c2">${dn.n}</span>`:''}</div>${g[d].map(([i,e])=>`<div class="hl"><span dir="ltr" style="font-weight:600">${X(i)[0]}</span><span class="w">${logTxt(i,e)}</span></div>`).join('')}</div>`}).join('')}
+const grp=src=>{const g={};for(const i in src)src[i].forEach(e=>(g[e.d]=g[e.d]||[]).push([i,e]));return g};
+let HO={};const th=k=>{HO[k]=!HO[k];render(1)};
+const dayList=(src,pre)=>{const g=grp(src),ks=Object.keys(g).sort().reverse();return ks.map(d=>{const L=g[d],p=L.map(x=>x[1].p).find(x=>dy(x)),dn=p&&dy(p),k=pre+d,op=HO[k];
+ return`<div class="part ${op?'open':''}"><div class="ph"><button class="pmain" onclick="th('${k}')"><span class="num">${fn(+d.slice(8))}</span><div class="pt"><b>${fd(d)}</b><small>${dn?dn.n+' · ':''}${fn(L.length)} حرکت</small></div></button><button class="swap" onclick="th('${k}')">${CH}</button></div>
+ <div class="pl">${L.map(([i,e])=>`<button class="row" onclick='go("ex",{i:"${i}",o:"lib"})'><div><b dir="ltr">${X(i)[0]}</b><small dir="ltr">${logTxt(i,e)}</small></div>${e.ok?'<span class="tag up">👍</span>':''}</button>`).join('')}</div></div>`}).join('')};
+function hist(){const n=Object.keys(grp(db.logs)).length;
+ return hdr('تاریخچه','',fn(n)+' روز تمرین')+(n?'':'<div class="empty">هنوز رکوردی ثبت نشده</div>')+dayList(db.logs,'h')+(Object.keys(db.arch).length?`<button class="btn" onclick="go('arch')">سوابق قدیمی</button>`:'')}
+const arch=()=>hdr('سوابق قدیمی',`tab('hist')`,'مدل قبلی: وزنه‌ی متفاوت در هر ست')+dayList(db.arch,'a');
 function sett(){return hdr('تنظیمات')+`<div class="card"><b>پشتیبان‌گیری</b><small style="display:block">آخرین پشتیبان: ${db.bk?fd(db.bk):'هنوز نگرفتی'}</small></div>
  <button class="btn pri" onclick="exp()">خروجی گرفتن (پشتیبان)</button><button class="btn" onclick="$('#f').click()">برگردوندن اطلاعات از فایل</button>
  <input id="f" type="file" accept=".json,application/json" hidden onchange="imp(this.files[0])">
  <div class="sec">تایمر استراحت</div><div class="card"><b>زمان استراحت پیش‌فرض</b><small style="display:block">برای حرکت‌هایی که توی صفحه‌ی خودشون زمان دیگه‌ای انتخاب نکردی.</small>
  <div class="restrow" style="margin:10px 0 0"><label style="box-shadow:none;padding:0;background:none">استراحت<select onchange="db.rdef=+this.value;save()">${RO.map(s=>`<option value="${s}" ${s==(+db.rdef||120)?'selected':''}>${fn(s)} ثانیه</option>`).join('')}</select></label></div></div>
- <div class="sec">برنامه</div><button class="btn" onclick="rdef()">بازگردانی برنامه‌ی پیش‌فرض ۴ روزه</button>
- <p class="mute" style="text-align:center;margin-top:18px;font-size:12px">Gym Log · نسخه ۱۳ · داده‌ها فقط روی همین گوشی ذخیره میشن</p>`}
+ <div class="sec">برنامه</div><button class="btn" onclick="rdef()">بازگردانی برنامه‌ی پیش‌فرض ۴ روزه</button><button class="btn red" onclick="rall()">بازگشت همه‌ی بخش‌ها به حالت پیش‌فرض</button>
+ <p class="mute" style="text-align:center;margin-top:18px;font-size:12px">Gym Log · نسخه ۱۴ · داده‌ها فقط روی همین گوشی ذخیره میشن</p>`}
+const rall=()=>{if(!confirm('همه‌ی بخش‌های اپ به حالت پیش‌فرض برگردن؟\n\n• برنامه‌ی ۴ روزه‌ی پیش‌فرض\n• اسم، ماهیچه، حداکثر تکرار، پله‌ی وزنه و زمان استراحت همه‌ی حرکت‌ها\n• حرکت‌هایی که خودت ساختی و رکوردی ندارن حذف میشن\n\nرکوردها، سوابق قدیمی و عکس‌ها حفظ میشن.'))return;
+ stopTick();relLock();db.days=defDays();db.ov={};db.mu={};db.mx={};db.step={};db.rest={};db.rdef=120;db.sel=null;db.run=null;
+ for(const id in db.cx)if(!(db.logs[id]||[]).length&&!(db.arch[id]||[]).length)delete db.cx[id];
+ db.days.forEach(d=>d.parts.forEach(p=>Object.keys(db.cx).filter(i=>i[0]=='c'&&pool(p.a).includes(i)).forEach(i=>{if(!p.ex.includes(i))p.ex.push(i)})));
+ HO={};OLDX=null;save();tab('home')};
 const rdef=()=>{if(confirm('روزهای تمرین با برنامه‌ی پیش‌فرض ۴ روزه جایگزین بشن؟ تاریخچه‌ی وزنه‌ها حفظ میشه.')){db.days=defDays();db.sel=null;save();tab('home')}};
 async function exp(){const b=new Blob([JSON.stringify(db)],{type:'application/json'}),n='gym-backup-'+D()+'.json',f=new File([b],n,{type:'application/json'});
  if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f]})}catch(e){return}}else{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;a.click()}
@@ -497,7 +508,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&db.run&&d
 // ---------- shell
 const IC={home:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',prog:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4v2h6V4M12 10v6M9 13h6"/>',lib:'<path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/>',hist:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',set:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>'};
 const TABS=[['home','تمرین'],['prog','ساخت برنامه'],['lib','حرکات'],['hist','تاریخچه'],['set','تنظیمات']];
-function render(keep){const y=keep&&$('main')?$('main').scrollTop:0,s=v.s,m={home,prog,hist,lib,set:sett,add,edit,ex:exs,in:intro,run,day,parts,pick};
+function render(keep){const y=keep&&$('main')?$('main').scrollTop:0,s=v.s,m={arch,home,prog,hist,lib,set:sett,add,edit,ex:exs,in:intro,run,day,parts,pick};
  if(['ex','edit','in','run'].includes(s))v.tab=v.o=='home'?'home':v.o=='lib'?'lib':'prog';
  $('#app').innerHTML=`<main>${(m[s]||home)()}</main><nav>${TABS.map(([k,t])=>`<button class="${v.tab==k?'on':''}" onclick="tab('${k}')"><svg viewBox="0 0 24 24">${IC[k]}</svg>${t}</button>`).join('')}</nav>`;
  $('main').scrollTop=y;if(['ex','edit','in'].includes(s)){ph('');gi(v.i).then(u=>ph(u))}if(s=='run'&&db.run&&db.run.ph=='rest'&&db.run.re>Date.now())startTick();}
