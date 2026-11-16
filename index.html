@@ -1,4 +1,4 @@
-<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Gym">
@@ -38,22 +38,22 @@ nav .on{color:var(--acc);font-weight:700}nav .on svg{stroke-width:2.3}
 .badge{background:rgba(255,255,255,.22);padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700}
 .ghost{font-size:12px;font-weight:700;background:#fff;color:var(--acc);padding:4px 12px;border-radius:999px}
 .sel{position:relative;margin:8px 0 2px}
-.sel select{-webkit-appearance:none;appearance:none;width:100%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:14px;color:#fff;font-size:20px;font-weight:800;padding:10px 14px 10px 40px}
+.sel select{-webkit-appearance:none;appearance:none;width:100%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:14px;color:#fff;font-size:20px;font-weight:800;padding:10px 40px 10px 14px}
 .sel select option{color:#101a33}
-.sel svg{position:absolute;left:12px;top:50%;width:20px;height:20px;margin-top:-10px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.sel svg{position:absolute;right:12px;top:50%;width:20px;height:20px;margin-top:-10px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 .bar{height:7px;background:rgba(255,255,255,.28);border-radius:4px;margin:14px 0 6px;overflow:hidden}.bar i{display:block;height:100%;background:#fff;border-radius:4px;transition:width .3s}
 .hero small{color:#e4e8ff;font-size:13px}
 /* body-part cards */
 .part{background:var(--card);border-radius:var(--r);margin:10px 0;box-shadow:var(--sh);overflow:hidden;border:1.5px solid transparent}
 .part.done{border-color:#bfe8d1;background:#fbfefc}
-.ph{display:flex;align-items:center;gap:12px;width:100%;padding:14px 14px 14px 12px}
+.ph{display:flex;align-items:center;gap:12px;width:100%;padding:14px 12px 14px 14px}
 .num{width:34px;height:34px;flex:none;border-radius:11px;background:var(--acc2);color:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
 .done .num{background:var(--ok);color:#fff}
 .pt{flex:1;min-width:0}.pt b{display:block;font-size:17px;font-weight:800}
 .pt small{display:block;color:var(--mute);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pt small i{font-style:normal;color:var(--acc);font-weight:600}.done .pt small i{color:var(--ok)}
 .chev{width:18px;height:18px;flex:none;fill:none;stroke:var(--mute);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
-.open .chev{transform:rotate(-90deg)}
+.open .chev{transform:rotate(90deg)}
 .pl{display:none;border-top:1px solid var(--line);padding:4px 0}.open .pl{display:block}
 .row{display:flex;align-items:center;gap:10px;width:100%;padding:11px 16px}
 .row+.row{border-top:1px solid var(--line)}
@@ -65,14 +65,14 @@ nav .on{color:var(--acc);font-weight:700}nav .on svg{stroke-width:2.3}
 .oth{background:#fafbfd}
 /* exercise page */
 .exh{display:flex;gap:14px;align-items:flex-start;margin:2px 0 6px}
-.exi{flex:1;min-width:0}.exi h2{font-size:22px;font-weight:800;line-height:1.25;text-align:right}
+.exi{flex:1;min-width:0}.exi h2{font-size:22px;font-weight:800;line-height:1.25;text-align:left}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
 .c2{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--acc2);color:var(--acc)}.c2.lo{background:#e2f6f5;color:#08807c}
 .mus{font-size:14px}.mus span{color:var(--mute)}
 .pw{position:relative;flex:none}
 .thumb{width:96px;height:96px;border-radius:22px;background:#e6ecfb center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:var(--sh)}
 .thumb.big{width:100%;max-width:260px;height:auto;aspect-ratio:1;margin:6px auto 4px}
-.gear{position:absolute;left:-7px;top:-7px;width:32px;height:32px;border-radius:50%;background:var(--card);box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;color:var(--mute)}
+.gear{position:absolute;right:-7px;top:-7px;width:32px;height:32px;border-radius:50%;background:var(--card);box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;color:var(--mute)}
 .gear svg{width:17px;height:17px}
 .timer{display:flex;align-items:center;gap:14px;width:100%;background:var(--card);border-radius:var(--r);padding:12px 16px;margin:12px 0;box-shadow:var(--sh)}
 .timer svg{width:58px;height:58px;flex:none;transform:rotate(-90deg)}
@@ -93,18 +93,18 @@ nav .on{color:var(--acc);font-weight:700}nav .on svg{stroke-width:2.3}
 .hl{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 0;font-size:13.5px}.hl+.hl{border-top:1px solid var(--line)}
 .hl .w{direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:600}
 /* lists, forms */
-.srch{position:relative;margin-bottom:6px}.srch input{width:100%;border:0;border-radius:16px;background:var(--card);box-shadow:var(--sh);padding:14px 44px 14px 14px;outline:none}
-.srch svg{position:absolute;right:14px;top:50%;margin-top:-10px;width:20px;height:20px;fill:none;stroke:var(--mute);stroke-width:2;stroke-linecap:round}
+.srch{position:relative;margin-bottom:6px}.srch input{width:100%;border:0;border-radius:16px;background:var(--card);box-shadow:var(--sh);padding:14px 14px 14px 44px;outline:none}
+.srch svg{position:absolute;left:14px;top:50%;margin-top:-10px;width:20px;height:20px;fill:none;stroke:var(--mute);stroke-width:2;stroke-linecap:round}
 .li{display:flex;align-items:center;gap:10px;width:100%;background:var(--card);border-radius:18px;padding:13px 16px;margin:8px 0;box-shadow:var(--sh)}
 .li div{flex:1;min-width:0}.li b{display:block;font-weight:700}.li small{display:block;color:var(--mute);font-size:12.5px}
-.li .dt{flex:none;font-size:12px;color:var(--mute);text-align:left}
+.li .dt{flex:none;font-size:12px;color:var(--mute);text-align:right}
 .dot{width:8px;height:8px;border-radius:50%;flex:none;background:var(--acc)}.dot.lo{background:#0b9e9a}
 label.f{display:block;margin:12px 0;color:var(--mute);font-size:13px;font-weight:600}
 label.f input,label.f select{display:block;width:100%;margin-top:6px;padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);font-size:16px;font-weight:500}
-.chip{display:inline-block;padding:9px 14px;margin:4px 0 4px 6px;border-radius:999px;background:var(--card);box-shadow:var(--sh);font-size:14px;font-weight:600}
+.chip{display:inline-block;padding:9px 14px;margin:4px 6px 4px 0;border-radius:999px;background:var(--card);box-shadow:var(--sh);font-size:14px;font-weight:600}
 .chip.on{background:var(--acc);color:#fff}
 .ck{width:26px;height:26px;border-radius:50%;border:2px solid #cfd7e6;flex:none;display:flex;align-items:center;justify-content:center;color:transparent;font-size:14px}.ck.on{background:var(--acc);border-color:var(--acc);color:#fff}
-.dc{display:flex;align-items:center;gap:10px}.dc .mv{display:flex;flex-direction:column;gap:4px}.mv button{width:30px;height:24px;border-radius:8px;background:var(--acc2);color:var(--acc);font-size:12px;text-align:center}
+.dc{display:flex;align-items:center;gap:10px}.dc .mv{display:flex;flex-direction:column;gap:4px;flex:none}.mv button{width:30px;height:24px;border-radius:8px;background:var(--acc2);color:var(--acc);font-size:12px;text-align:center}
 .gh{display:flex;align-items:center;gap:8px;margin-bottom:8px}.gh b{flex:1;font-size:17px;font-weight:800}
 .mini{padding:6px 12px;border-radius:999px;background:var(--acc2);color:var(--acc);font-size:13px;font-weight:700}.mini.x{background:#fdeceb;color:#c0392b}
 .ex{display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line)}.ex b{flex:1;font-weight:600;font-size:14.5px}
@@ -115,7 +115,7 @@ label.f input,label.f select{display:block;width:100%;margin-top:6px;padding:13p
 .empty{text-align:center;color:var(--mute);padding:30px 10px;font-size:14px}
 
 /* v13: intro / set / rest / results */
-.exn{font-size:22px;font-weight:800;line-height:1.25;text-align:right;margin:2px 0 0}
+.exn{font-size:22px;font-weight:800;line-height:1.25;text-align:left;margin:2px 0 0}
 .c2.gr{background:#eef2f7;color:#4a5670}
 .intro{display:flex;gap:12px;align-items:stretch;margin:16px 0 4px}
 .pbig{width:44%;flex:none;align-self:stretch;min-height:200px;border-radius:24px;background:#e6ecfb center/cover no-repeat;box-shadow:var(--sh);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:34px;color:var(--mute)}
@@ -136,7 +136,7 @@ label.f input,label.f select{display:block;width:100%;margin-top:6px;padding:13p
 .nstp input{flex:1;min-width:0;width:100%;border:0;background:var(--bg);border-radius:10px;padding:7px 2px;text-align:center;font-size:17px;font-weight:800;direction:ltr;outline:none}
 .nstp span{font-size:11px;color:var(--mute);font-weight:700;flex:none}
 .restrow{display:flex;align-items:center;gap:10px;margin:14px 0 4px}
-.restrow label{flex:1;display:flex;align-items:center;gap:10px;background:var(--card);border-radius:16px;padding:6px 12px 6px 6px;box-shadow:var(--sh);font-weight:700;font-size:14px}
+.restrow label{flex:1;display:flex;align-items:center;gap:10px;background:var(--card);border-radius:16px;padding:6px 6px 6px 12px;box-shadow:var(--sh);font-weight:700;font-size:14px}
 .restrow select{flex:1;border:0;background:var(--bg);border-radius:12px;padding:10px;font-size:15px;font-weight:700;color:var(--ink)}
 .gearb{width:50px;height:50px;flex:none;border-radius:16px;background:var(--card);box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;color:var(--mute)}.gearb svg{width:22px;height:22px}
 .btn.big{padding:18px;font-size:18px;border-radius:18px}
@@ -167,7 +167,7 @@ label.f input,label.f select{display:block;width:100%;margin-top:6px;padding:13p
 .banner{display:flex;align-items:center;gap:10px;width:100%;background:var(--ink);color:#fff;border-radius:18px;padding:12px 14px;margin:8px 0}
 .banner div{flex:1;min-width:0}.banner small{color:#b9c2dc;display:block;font-size:12px}.banner b{display:block}
 .part .ph{padding:0}
-.pmain{flex:1;display:flex;align-items:center;gap:12px;min-width:0;padding:14px 4px 14px 12px}
+.pmain{flex:1;display:flex;align-items:center;gap:12px;min-width:0;padding:14px 12px 14px 4px}
 .swap{width:40px;align-self:stretch;flex:none;display:flex;align-items:center;justify-content:center;border-inline-start:1px solid var(--line)}
 .brow{display:flex;gap:10px;margin-top:6px}.brow .btn{flex:1;margin:6px 0}
 </style></head><body><div id="app"></div>
@@ -175,12 +175,12 @@ label.f input,label.f select{display:block;width:100%;margin-top:6px;padding:13p
 // ---------- helpers
 const $=s=>document.querySelector(s);
 const D=()=>{const n=new Date();return new Date(n-n.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
-const fd=d=>new Date(d+'T12:00:00').toLocaleDateString('fa-IR-u-ca-gregory',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-const fn=n=>String(n).replace(/\d/g,c=>'۰۱۲۳۴۵۶۷۸۹'[c]);
+const fd=d=>new Date(d+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+const fn=n=>String(n),pl=(n,w)=>n+' '+w+(n==1?'':'s');
 const q=s=>JSON.stringify(s).replace(/'/g,'').replace(/"/g,'&quot;');
 
 // ---------- body parts
-const A={uc:'سینه بالا',um:'سینه میانی',ul:'سینه پایین',lat:'زیربغل',row:'پشت میانی/قایقی',trap:'کول و ذوزنقه',lb:'فیله کمر',sf:'سرشانه جلو',sm:'سرشانه میانی',sr:'سرشانه پشت',tri:'پشت‌بازو',bi:'جلوبازو',fa:'ساعد',ff:'ساعد جلو',fb:'ساعد پشت',abs:'شکم',obl:'پهلو',nf:'گردن جلو',nb:'گردن پشت',quad:'چهارسر ران',ham:'همسترینگ',glu:'باسن',add:'داخل ران',abd:'خارج ران',calf:'ساق پا',tib:'جلو ساق'};
+const A={uc:'Upper chest',um:'Mid chest',ul:'Lower chest',lat:'Lats',row:'Mid back',trap:'Traps',lb:'Lower back',sf:'Front delts',sm:'Side delts',sr:'Rear delts',tri:'Triceps',bi:'Biceps',fa:'Forearms',ff:'Forearm flexors',fb:'Forearm extensors',abs:'Abs',obl:'Obliques',nf:'Neck (front)',nb:'Neck (back)',quad:'Quads',ham:'Hamstrings',glu:'Glutes',add:'Adductors',abd:'Abductors',calf:'Calves',tib:'Tibialis'};
 const MUP=['uc','um','ul','lat','row','trap','lb','sf','sm','sr','tri','bi','ff','fb','abs','obl','nf','nb'],MLO=['quad','ham','glu','add','abd','calf','tib'];
 const PUP=['uc','um','ul','lat','row','trap','lb','sf','sm','sr','tri','bi','fa','abs','obl','nf','nb'],PLO=MLO;
 const isUp=a=>MUP.includes(a)||a=='fa';
@@ -210,7 +210,7 @@ const MU={};[['inc pic ibb','uc'],['bar da cf','ul'],['fly vb cp cp3 fbb','um'],
 
 // ---------- default program: rotation pool per body part (machine & cable first)
 const DEF={uc:['inc','pic'],um:['fly','vb','cp','cp3'],ul:['bar','da','cf'],lat:['lat','pll','plr'],row:['row','csr'],trap:['sh','cut'],lb:['hy','pt'],sf:['sp','csp','sp3'],sm:['lr'],sr:['rd','fp','rcf'],tri:['tp','to'],bi:['bc','hc'],fa:['fo'],abs:['cr','ccr'],obl:['wc','pal'],nf:['nf'],nb:['nb'],quad:['hk','lp','hl','le','ps'],ham:['pl','sl'],glu:['gt','gk'],add:['ad'],abd:['ab'],calf:['sc','scr'],tib:['ti','tw']};
-const DD=[['بالاتنه ۱','uc um lat trap lb tri bi row sf'],['پایین‌تنه ۱','quad ham glu add calf fa nf abs obl'],['بالاتنه ۲','ul sm sr um bi tri lb uc lat'],['پایین‌تنه ۲','quad ham calf abd tib fa nb abs obl']];
+const DD=[['Upper body 1','uc um lat trap lb tri bi row sf'],['Lower body 1','quad ham glu add calf fa nf abs obl'],['Upper body 2','ul sm sr um bi tri lb uc lat'],['Lower body 2','quad ham calf abd tib fa nb abs obl']];
 // every exercise of a body part is in its rotation (machine & cable ones first)
 for(const a of [...PUP,...PLO]){const all=Object.keys(E).filter(i=>{const p=E[i][1].split(',');return p.includes(a)||(a=='fa'&&(p.includes('ff')||p.includes('fb')))});DEF[a]=[...new Set([...(DEF[a]||[]),...all])]}
 const defDays=()=>DD.map(([n,p],j)=>({id:'d'+(j+1),n,parts:p.split(' ').map(a=>({a,ex:[...(DEF[a]||[])]}))}));
@@ -243,7 +243,7 @@ function migrate(x){x=x&&typeof x=='object'?x:{};x.logs=x.logs||{};x.cx=x.cx||{}
  for(const id in x.logs)x.logs[id].sort((a,b)=>a.d<b.d?-1:a.d>b.d?1:(a.t||0)-(b.t||0));
  return x}
 function load(){try{const s=localStorage.getItem('gymlog');if(s)return migrate(JSON.parse(s))}catch(e){}return migrate({})}
-let db=load();if(db.run&&db.run.d!=D())db.run=null;
+let db=load();{const NM={'بالاتنه ۱':'Upper body 1','پایین‌تنه ۱':'Lower body 1','بالاتنه ۲':'Upper body 2','پایین‌تنه ۲':'Lower body 2'};let ch=0;db.days.forEach(d=>{if(NM[d.n]){d.n=NM[d.n];ch=1}});if(ch)try{localStorage.setItem('gymlog',JSON.stringify(db))}catch(e){}}if(db.run&&db.run.d!=D())db.run=null;
 const save=()=>{try{localStorage.setItem('gymlog',JSON.stringify(db))}catch(e){}};save();
 
 // ---------- exercise helpers
@@ -252,7 +252,7 @@ const mus=id=>id in db.mu?db.mu[id]:(MU[id]||'');
 const md=id=>X(id)[2]||'3';
 const lst=id=>(db.logs[id]||[]).slice(-1)[0];
 const tod=id=>(db.logs[id]||[]).find(e=>e.d==D());
-const tier=id=>X(id)[1].split(',').some(isUp)?'بالاتنه':'پایین‌تنه';
+const tier=id=>X(id)[1].split(',').some(isUp)?'Upper body':'Lower body';
 const arn=id=>X(id)[1].split(',').map(k=>A[k]).join(' / ');
 const ids=()=>Object.keys(E).concat(Object.keys(db.cx));
 const pool=a=>ids().filter(i=>{const p=X(i)[1].split(',');return p.includes(a)||(a=='fa'&&(p.includes('ff')||p.includes('fb')))||((a=='ff'||a=='fb')&&p.includes('fa'))});
@@ -262,7 +262,7 @@ const MXD={};[[10,'fbb ibb bar smr smdl smg sml smgm da chin'],[12,'inc pic cp3 
 const SIDE=['sar','gk','pal'];
 const mx=id=>+db.mx[id]||MXD[id]||12;
 const side=id=>SIDE.includes(id)||!!(db.cx[id]&&db.cx[id][3]);
-const lanes=id=>md(id)=='f'?['جلو','پشت']:[''];
+const lanes=id=>md(id)=='f'?['Front','Back']:[''];
 const isN=e=>!!(e&&e.rp);
 const nw=s=>String(s).split('+').reduce((a,b)=>a+(parseFloat(b)||0),0);
 const w1=x=>String(Math.round(x*100)/100);
@@ -273,8 +273,8 @@ const nextW=id=>{const l=lst(id),w=lastW(id),s=AST.includes(id)?-1:1;return isN(
 const okReps=(id,e)=>e.rp.every(a=>a.length==3&&a.every(r=>r>=mx(id)));
 const reps=a=>(a||[]).map(fn).join('·');
 const fw=(id,l)=>!l?'':md(id)=='f'&&l.w.length>3?l.w.slice(0,3).join(' / ')+'  |  '+l.w.slice(3).join(' / '):l.w.join(' / ');
-const logTxt=(id,e)=>{if(!e)return'بدون سابقه';if(isN(e)){const L=lanes(id);return e.w.map((w,j)=>(L[j]?L[j]+' ':'')+w+' × '+(e.ok?'👍':reps(e.rp[j]))).join('  |  ')}return fw(id,e)+' '+(e.ok?'👍':'· '+fn(e.r??'?'))};
-function stat(id){if(tod(id))return['✓ امروز','ok'];const l=lst(id);if(!l)return['جدید',''];if(isN(l))return l.ok?['👍 سنگین‌تر','up']:[reps(l.rp[0]),'w'];return l.ok?['👍','up']:[fn(l.r??'?')+' تکرار','w']}
+const logTxt=(id,e)=>{if(!e)return'No history';if(isN(e)){const L=lanes(id);return e.w.map((w,j)=>(L[j]?L[j]+' ':'')+w+' × '+(e.ok?'👍':reps(e.rp[j]))).join('  |  ')}return fw(id,e)+' '+(e.ok?'👍':'· '+fn(e.r??'?'))};
+function stat(id){if(tod(id))return['✓ Today','ok'];const l=lst(id);if(!l)return['New',''];if(isN(l))return l.ok?['👍 Heavier','up']:[reps(l.rp[0]),'w'];return l.ok?['👍','up']:[fn(l.r??'?')+' reps','w']}
 const RO=[60,90,120,150,180];
 const restOf=id=>+db.rest[id]||+db.rdef||120;
 const tf=s=>s>=60?fn(Math.floor(s/60))+':'+fn(String(s%60).padStart(2,'0')):fn(s);
@@ -297,27 +297,27 @@ function plan(d){const used=new Set(),out=d.parts.map(p=>{const dn=[...p.ex,...p
 let v={s:'home',tab:'home'},OPEN=null,MORE=null;
 const go=(s,o)=>{v={tab:v.tab,...(o||{}),s};render()};
 const tab=t=>{v={s:t,tab:t};OPEN=MORE=null;render()};
-const BK='<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>';
+const BK='<svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>';
 const hdr=(t,back,sub,extra)=>`<div class="top">${back?`<button class="back" onclick="${back}">${BK}</button>`:''}<h1>${t}${sub?`<span class="sub">${sub}</span>`:''}</h1>${extra||''}</div>`;
-const CH='<svg class="chev" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>';
+const CH='<svg class="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>';
 
 // ---------- workout tab
 function home(){const n=db.days.length,bkd=db.bk?(Date.parse(D())-Date.parse(db.bk))/864e5:99;
- let h=hdr('تمرین','',fd(D()));
- if(db.run){const r=db.run;h+=`<button class="banner" onclick='go("run",${q({i:r.id,k:r.k,a:r.a,o:r.o})})'><div><small>حرکت نیمه‌کاره</small><b dir="ltr" style="text-align:right">${X(r.id)[0]}</b><small>ست ${fn(r.set+1)} از ۳</small></div><span class="ghost">ادامه</span></button>`}
- if(bkd>14)h+=`<div class="hint w" onclick="tab('set')">بیشتر از دو هفته از آخرین پشتیبان‌گیری گذشته. برای گرفتن پشتیبان اینجا بزن.</div>`;
- if(!n)return h+`<div class="hint" onclick="tab('prog')">هنوز روز تمرینی نداری. اینجا بزن و توی «ساخت برنامه» بساز.</div>`;
+ let h=hdr('Workout','',fd(D()));
+ if(db.run){const r=db.run;h+=`<button class="banner" onclick='go("run",${q({i:r.id,k:r.k,a:r.a,o:r.o})})'><div><small>Exercise in progress</small><b dir="ltr" style="text-align:left">${X(r.id)[0]}</b><small>Set ${fn(r.set+1)} of 3</small></div><span class="ghost">Continue</span></button>`}
+ if(bkd>14)h+=`<div class="hint w" onclick="tab('set')">It’s been over two weeks since your last backup. Tap here to back up.</div>`;
+ if(!n)return h+`<div class="hint" onclick="tab('prog')">You don’t have any workout days yet. Tap here to create one in Program.</div>`;
  const j=curIdx(),au=autoIdx(),d=db.days[j],P=plan(d),dn=P.filter(o=>o.dn).length;
- h+=`<div class="hero"><div class="hrow">${j==au?'<span class="badge">نوبت امروز</span>':`<span class="badge">انتخاب دستی</span><button class="ghost" onclick="pickDay('')">برگشت به نوبت امروز</button>`}</div>
- <div class="sel"><select onchange="pickDay(this.value)">${db.days.map((x,i)=>`<option value="${x.id}" ${i==j?'selected':''}>روز ${fn(i+1)} · ${x.n}</option>`).join('')}</select><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
- <div class="bar"><i style="width:${P.length?dn/P.length*100:0}%"></i></div><small>${P.length?fn(dn)+' از '+fn(P.length)+' بخش انجام شد':'این روز هنوز بخشی نداره'}</small></div>`;
- if(!P.length)h+=`<div class="hint" onclick="v.tab='prog';go('day',{k:'${d.id}'})">این روز خالیه. اینجا بزن و از «ساخت برنامه» بخش بدن اضافه کن.</div>`;
- if(n&&P.length&&dn==P.length)h+=`<div class="hint ok">✓ همه‌ی بخش‌های این روز انجام شد. فردا نوبت روز ${fn((j+1)%n+1)} · ${db.days[(j+1)%n].n} هست.</div>`;
+ h+=`<div class="hero"><div class="hrow">${j==au?'<span class="badge">Up today</span>':`<span class="badge">Picked manually</span><button class="ghost" onclick="pickDay('')">Back to scheduled day</button>`}</div>
+ <div class="sel"><select onchange="pickDay(this.value)">${db.days.map((x,i)=>`<option value="${x.id}" ${i==j?'selected':''}>Day ${fn(i+1)} · ${x.n}</option>`).join('')}</select><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+ <div class="bar"><i style="width:${P.length?dn/P.length*100:0}%"></i></div><small>${P.length?fn(dn)+' of '+fn(P.length)+' parts done':'This day has no body parts yet'}</small></div>`;
+ if(!P.length)h+=`<div class="hint" onclick="v.tab='prog';go('day',{k:'${d.id}'})">This day is empty. Tap here to add body parts in Program.</div>`;
+ if(n&&P.length&&dn==P.length)h+=`<div class="hint ok">✓ All parts of this day are done. Next up: Day ${fn((j+1)%n+1)} · ${db.days[(j+1)%n].n}.</div>`;
  h+=P.map((o,x)=>{const a=o.p.a,id=o.dn||o.s,open=OPEN==a,ex=o.p.ex.length?o.p.ex:pool(a),oth=pool(a).filter(i=>!ex.includes(i)),[st,c]=id?stat(id):['',''];
-  const row=(i,isS)=>{const[s2,c2]=stat(i),l=lst(i);return`<button class="row ${isS?'sug':''}" onclick='go("in",{i:"${i}",k:"${d.id}",a:"${a}",o:"home"})'><div><b dir="ltr">${X(i)[0]}${isS?'<span class="st">پیشنهاد</span>':''}</b><small dir="ltr">${logTxt(i,l)}</small></div><span class="tag ${c2}">${s2}</span></button>`};
+  const row=(i,isS)=>{const[s2,c2]=stat(i),l=lst(i);return`<button class="row ${isS?'sug':''}" onclick='go("in",{i:"${i}",k:"${d.id}",a:"${a}",o:"home"})'><div><b dir="ltr">${X(i)[0]}${isS?'<span class="st">Suggested</span>':''}</b><small dir="ltr">${logTxt(i,l)}</small></div><span class="tag ${c2}">${s2}</span></button>`};
   const main=id?`go("${o.dn?'ex':'in'}",${q({i:id,k:d.id,a,o:'home'})})`:`tg("${a}")`;
-  return`<div class="part ${o.dn?'done':''} ${open?'open':''}"><div class="ph"><button class="pmain" onclick='${main}'><span class="num">${o.dn?'✓':fn(x+1)}</span><div class="pt"><b>${A[a]}</b><small>${id?`<i>${o.dn?'انجام شد':'پیشنهاد'}:</i> <span dir="ltr">${X(id)[0]}</span>`:'حرکتی انتخاب نشده'}</small></div>${id&&!o.dn?`<span class="tag ${c}">${st}</span>`:''}</button><button class="swap" onclick="tg('${a}')">${CH}</button></div>
-  <div class="pl">${ex.map(i=>row(i,i==id)).join('')}${oth.length?`<button class="more" onclick="tm('${a}')">${MORE==a?'بستن حرکات دیگه':'حرکات دیگه‌ی این بخش ('+fn(oth.length)+')'}</button>${MORE==a?'<div class="oth">'+oth.map(i=>row(i,i==id)).join('')+'</div>':''}`:''}</div></div>`}).join('');
+  return`<div class="part ${o.dn?'done':''} ${open?'open':''}"><div class="ph"><button class="pmain" onclick='${main}'><span class="num">${o.dn?'✓':fn(x+1)}</span><div class="pt"><b>${A[a]}</b><small>${id?`<i>${o.dn?'Done':'Suggested'}:</i> <span dir="ltr">${X(id)[0]}</span>`:'No exercise selected'}</small></div>${id&&!o.dn?`<span class="tag ${c}">${st}</span>`:''}</button><button class="swap" onclick="tg('${a}')">${CH}</button></div>
+  <div class="pl">${ex.map(i=>row(i,i==id)).join('')}${oth.length?`<button class="more" onclick="tm('${a}')">${MORE==a?'Hide other exercises':'Other exercises for this part ('+fn(oth.length)+')'}</button>${MORE==a?'<div class="oth">'+oth.map(i=>row(i,i==id)).join('')+'</div>':''}`:''}</div></div>`}).join('');
  return h}
 const tg=a=>{OPEN=OPEN==a?null:a;MORE=null;render(1)},tm=a=>{MORE=MORE==a?null:a;render(1)};
 const pickDay=k=>{db.sel=k?{d:D(),id:k}:null;OPEN=null;save();render()};
@@ -330,54 +330,54 @@ const ctx=()=>({i:v.i,k:v.k,a:v.a,o:v.o,q:v.q});
 const gin=()=>go('in',ctx()),gex=()=>go('ex',ctx()),ged=f=>go('edit',{...ctx(),f});
 const backEx=()=>v.o=='home'?`tab('home')`:v.o=='lib'?`go('lib',{q:'${(v.q||'').replace(/['"\\]/g,'')}'})`:v.k?`go('day',{k:'${v.k}'})`:`tab('lib')`;
 const dchip=()=>{const d=v.k&&dy(v.k);return d&&v.o=='home'?`<span class="c2">${d.n} · ${A[v.a]||''}</span>`:''};
-const chips=id=>`<div class="chips"><span class="c2 ${tier(id)=='بالاتنه'?'':'lo'}">${tier(id)}</span>${mus(id)?`<span class="c2 gr">${A[mus(id)]}</span>`:''}</div>`;
-const histBlock=id=>{const hs=(db.logs[id]||[]).slice(-6).reverse(),ar=db.arch[id]||[];return(hs.length?`<div class="sec">سابقه</div><div class="card" style="padding:6px 16px">${hs.map(x=>`<div class="hl"><span class="mute">${fd(x.d)}</span><span class="w">${logTxt(id,x)}</span></div>`).join('')}</div>`:'')+
- (ar.length?`<button class="btn sm" onclick="OLDX=OLDX==v.i?null:v.i;render(1)">سوابق قدیمی (${fn(ar.length)})</button>`+(OLDX==id?`<div class="card" style="padding:6px 16px">${ar.slice().reverse().map(x=>`<div class="hl"><span class="mute">${fd(x.d)}</span><span class="w">${logTxt(id,x)}</span></div>`).join('')}</div>`:''):'')};
+const chips=id=>`<div class="chips"><span class="c2 ${tier(id)=='Upper body'?'':'lo'}">${tier(id)}</span>${mus(id)?`<span class="c2 gr">${A[mus(id)]}</span>`:''}</div>`;
+const histBlock=id=>{const hs=(db.logs[id]||[]).slice(-6).reverse(),ar=db.arch[id]||[];return(hs.length?`<div class="sec">History</div><div class="card" style="padding:6px 16px">${hs.map(x=>`<div class="hl"><span class="mute">${fd(x.d)}</span><span class="w">${logTxt(id,x)}</span></div>`).join('')}</div>`:'')+
+ (ar.length?`<button class="btn sm" onclick="OLDX=OLDX==v.i?null:v.i;render(1)">Old records (${fn(ar.length)})</button>`+(OLDX==id?`<div class="card" style="padding:6px 16px">${ar.slice().reverse().map(x=>`<div class="hl"><span class="mute">${fd(x.d)}</span><span class="w">${logTxt(id,x)}</span></div>`).join('')}</div>`:''):'')};
 let OLDX=null;
-function lastBlock(id){const l=lst(id),L=lanes(id),M=mx(id);if(!l||!isN(l))return`<b class="mute" style="font-size:14px">هنوز رکوردی ثبت نشده</b>`;
+function lastBlock(id){const l=lst(id),L=lanes(id),M=mx(id);if(!l||!isN(l))return`<b class="mute" style="font-size:14px">No records yet</b>`;
  return L.map((ln,j)=>`<div>${ln?`<small>${ln}</small>`:''}<div class="pills">${l.ok?'<span class="rp g">👍</span>':[0,1,2].map(s=>{const r=(l.rp[j]||[])[s];return`<span class="rp ${r>=M?'g':''}">${r==null?'—':fn(r)}</span>`}).join('')}</div></div>`).join('')+`<small>${fd(l.d)}</small>`}
 
 // ---------- exercise intro page (before starting)
 function intro(){const id=v.i,e=X(id),L=lanes(id),W=nextW(id),r=db.run,l=lst(id),ro=[...new Set([...RO,restOf(id)])].sort((a,b)=>a-b);
  let h=hdr('',backEx(),'',dchip());
- h+=`<h2 class="exn" dir="ltr">${e[0]}</h2>${chips(id)}<a class="yt" href="${YT(id)}" target="_blank" rel="noopener">${YTI}دیدن در یوتیوب</a>`;
+ h+=`<h2 class="exn" dir="ltr">${e[0]}</h2>${chips(id)}<a class="yt" href="${YT(id)}" target="_blank" rel="noopener">${YTI}Watch on YouTube</a>`;
  h+=`<div class="intro"><div id="ph" class="pbig" onclick="pz()"></div><div class="icol">
-  <div class="kv"><small>حداکثر تکرار</small><b>${fn(mx(id))}</b> <small>× ۳ ست${side(id)?' · هر طرف':''}</small></div>
-  <div class="kv"><small>آخرین وضعیت</small>${lastBlock(id)}</div>
-  <div class="kv"><small>وزنه‌ی این جلسه (kg)</small>${L.map((ln,j)=>`<div class="nstp">${ln?`<span>${ln}</span>`:''}<button onclick="sw(${j},-1)">−</button><input id="nw${j}" value="${W[j]??''}" autocomplete="off"><button onclick="sw(${j},1)">+</button></div>`).join('')}</div>
+  <div class="kv"><small>Max reps</small><b>${fn(mx(id))}</b> <small>× 3 sets${side(id)?' · per side':''}</small></div>
+  <div class="kv"><small>Last result</small>${lastBlock(id)}</div>
+  <div class="kv"><small>Weight this session (kg)</small>${L.map((ln,j)=>`<div class="nstp">${ln?`<span>${ln}</span>`:''}<button onclick="sw(${j},-1)">−</button><input id="nw${j}" value="${W[j]??''}" autocomplete="off"><button onclick="sw(${j},1)">+</button></div>`).join('')}</div>
  </div></div>`;
- h+=`<div class="restrow"><label>استراحت<select onchange="db.rest[v.i]=+this.value;save()">${ro.map(s=>`<option value="${s}" ${s==restOf(id)?'selected':''}>${fn(s)} ثانیه</option>`).join('')}</select></label><button class="gearb" onclick="ged('in')">${GE}</button></div>`;
- h+=`<button class="btn pri big" onclick="start()">${r&&r.id==id?'ادامه‌ی حرکت':'شروع'}</button>`;
- if(tod(id))h+=`<button class="btn sm" onclick="gex()">نتیجه‌ی امروز</button>`;
+ h+=`<div class="restrow"><label>Rest<select onchange="db.rest[v.i]=+this.value;save()">${ro.map(s=>`<option value="${s}" ${s==restOf(id)?'selected':''}>${fn(s)} sec</option>`).join('')}</select></label><button class="gearb" onclick="ged('in')">${GE}</button></div>`;
+ h+=`<button class="btn pri big" onclick="start()">${r&&r.id==id?'Continue exercise':'Start'}</button>`;
+ if(tod(id))h+=`<button class="btn sm" onclick="gex()">Today’s result</button>`;
  return h+histBlock(id)}
 const sw=(j,d)=>{const i=$('#nw'+j);i.value=w1(Math.max(0,nw(i.value||0)+d*stepOf(v.i)))};
 function start(){const id=v.i,r=db.run;if(r&&r.id==id)return go('run',ctx());
- if(r&&!confirm('حرکت «'+X(r.id)[0]+'» نیمه‌کاره‌ست. کنارش بذارم و این رو شروع کنم؟'))return;
- const w=lanes(id).map((_,j)=>($('#nw'+j).value||'').trim());if(w.some(x=>!x))return alert('وزنه‌ی این جلسه رو وارد کن');
+ if(r&&!confirm('"'+X(r.id)[0]+'" is in progress. Drop it and start this one?'))return;
+ const w=lanes(id).map((_,j)=>($('#nw'+j).value||'').trim());if(w.some(x=>!x))return alert('Enter this session’s weight');
  stopTick();db.run={id,k:v.k||'',a:v.a||'',o:v.o||'lib',d:D(),w,rp:lanes(id).map(()=>[]),set:0,ph:'set'};save();go('run',ctx())}
 
 // ---------- set / rest screens
-const RC2=2*Math.PI*104,SN=['اول','دوم','سوم'];
+const RC2=2*Math.PI*104,SN=['1','2','3'];
 function run(){const r=db.run;if(!r)return intro();const id=r.id,L=lanes(id),M=mx(id),pvv=(db.logs[id]||[]).filter(e=>isN(e)&&e.d!=D()).slice(-1)[0];
  let h=hdr('',`go('in',${q({i:id,k:r.k,a:r.a,o:r.o})})`,'',`<span class="c2" dir="ltr">${X(id)[0]}</span>`);
  h+=`<div class="dots">${[0,1,2].map(j=>`<i class="${j<r.set||(j==r.set&&r.ph=='rest')?'dn':j==r.set?'on':''}"></i>`).join('')}</div>`;
  if(r.ph=='set'){
-  h+=`<div class="stt">ست ${SN[r.set]}</div>`;
-  h+=`<div class="prev">${pvv?'دفعه‌ی قبل در این ست: '+L.map((ln,j)=>(ln?ln+' ':'')+fn((pvv.rp[j]||[])[r.set]??'—')).join(' · ')+' تکرار':'برای این ست سابقه‌ای نداری'} · حداکثر ${fn(M)}${side(id)?' (هر طرف)':''}</div>`;
-  h+=`<div class="wcard"><div><small>وزنه‌ی در حال انجام</small>${L.map((ln,j)=>`<b>${r.w[j]}</b> <span class="mute">kg${ln?' · '+ln:''}</span>`).join('<br>')}</div><button class="gearb" onclick="ew()">${GE}</button></div>`;
-  h+=L.map((ln,j)=>{const b=pvv&&(pvv.rp[j]||[])[r.set]!=null?pvv.rp[j][r.set]:M;return`<div class="repin"><small>تعداد تکرار انجام‌شده${ln?' · '+ln:''}</small><div class="rstp"><button onclick="rq(${j},-1)">−</button><input id="rp${j}" type="number" inputmode="numeric" data-b="${b}" placeholder="${b}" value="${r.rp[j][r.set]??''}"><button onclick="rq(${j},1)">+</button></div></div>`}).join('');
-  h+=`<button class="btn pri big" onclick="doneSet()">${r.set<2?'استراحت':'پایان حرکت'}</button>`;
+  h+=`<div class="stt">Set ${SN[r.set]}</div>`;
+  h+=`<div class="prev">${pvv?'Last time in this set: '+L.map((ln,j)=>(ln?ln+' ':'')+fn((pvv.rp[j]||[])[r.set]??'—')).join(' · ')+' reps':'No history for this set'} · max ${fn(M)}${side(id)?' (per side)':''}</div>`;
+  h+=`<div class="wcard"><div><small>Working weight</small>${L.map((ln,j)=>`<b>${r.w[j]}</b> <span class="mute">kg${ln?' · '+ln:''}</span>`).join('<br>')}</div><button class="gearb" onclick="ew()">${GE}</button></div>`;
+  h+=L.map((ln,j)=>{const b=pvv&&(pvv.rp[j]||[])[r.set]!=null?pvv.rp[j][r.set]:M;return`<div class="repin"><small>Reps done${ln?' · '+ln:''}</small><div class="rstp"><button onclick="rq(${j},-1)">−</button><input id="rp${j}" type="number" inputmode="numeric" data-b="${b}" placeholder="${b}" value="${r.rp[j][r.set]??''}"><button onclick="rq(${j},1)">+</button></div></div>`}).join('');
+  h+=`<button class="btn pri big" onclick="doneSet()">${r.set<2?'Rest':'Finish exercise'}</button>`;
  }else{const left=r.re-Date.now(),dn=left<=0;
-  h+=`<div class="stt" style="font-size:24px">${dn?'استراحت تموم شد':'استراحت'}</div>`;
-  h+=`<div class="ringw ${dn?'dn pop':'breath'}"><svg viewBox="0 0 240 240"><defs><linearGradient id="rgd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a55ff"/><stop offset="1" stop-color="#8fa0ff"/></linearGradient></defs><circle class="rb" cx="120" cy="120" r="104"/><circle id="rr" class="rf" cx="120" cy="120" r="104" stroke-dasharray="${RC2}" stroke-dashoffset="${dn?0:RC2*(1-left/(r.rt*1000))}"/></svg><div class="ctr"><b id="rn" dir="ltr">${dn?'✓':tf(Math.ceil(left/1000))}</b><small>${dn?'آماده‌ی ست '+SN[r.set+1]:'از '+tf(r.rt)+(r.rt<60?' ثانیه':'')}</small></div></div>`;
-  h+=`<div class="prev">ست ${SN[r.set]} ثبت شد: ${L.map((ln,j)=>(ln?ln+' ':'')+fn(r.rp[j][r.set])).join(' · ')} تکرار با <span class="wv">${r.w.join(' / ')}</span> kg</div>`;
-  h+=`<div class="brow"><button ${dn?'id="nx" class="btn pri pop"':'class="btn"'} onclick="${dn?'nextSet()':'skipRest()'}">${dn?'شروع ست '+SN[r.set+1]:'رد کردن استراحت'}</button><button class="btn red" onclick="cancelRun()">لغو حرکت</button></div>`;
+  h+=`<div class="stt" style="font-size:24px">${dn?'Rest over':'Rest'}</div>`;
+  h+=`<div class="ringw ${dn?'dn pop':'breath'}"><svg viewBox="0 0 240 240"><defs><linearGradient id="rgd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a55ff"/><stop offset="1" stop-color="#8fa0ff"/></linearGradient></defs><circle class="rb" cx="120" cy="120" r="104"/><circle id="rr" class="rf" cx="120" cy="120" r="104" stroke-dasharray="${RC2}" stroke-dashoffset="${dn?0:RC2*(1-left/(r.rt*1000))}"/></svg><div class="ctr"><b id="rn" dir="ltr">${dn?'✓':tf(Math.ceil(left/1000))}</b><small>${dn?'Ready for set '+SN[r.set+1]:'of '+tf(r.rt)+(r.rt<60?' sec':'')}</small></div></div>`;
+  h+=`<div class="prev">Set ${SN[r.set]} logged: ${L.map((ln,j)=>(ln?ln+' ':'')+fn(r.rp[j][r.set])).join(' · ')} reps at <span class="wv">${r.w.join(' / ')}</span> kg</div>`;
+  h+=`<div class="brow"><button ${dn?'id="nx" class="btn pri pop"':'class="btn"'} onclick="${dn?'nextSet()':'skipRest()'}">${dn?'Start set '+SN[r.set+1]:'Skip rest'}</button><button class="btn red" onclick="cancelRun()">Cancel exercise</button></div>`;
  }
- return h+(r.ph=='set'?`<button class="skip" style="margin-top:22px;color:#c0392b" onclick="cancelRun()">لغو این حرکت</button>`:'')}
+ return h+(r.ph=='set'?`<button class="skip" style="margin-top:22px;color:#c0392b" onclick="cancelRun()">Cancel this exercise</button>`:'')}
 const rq=(j,d)=>{const i=$('#rp'+j);if(i.value===''){i.value=i.dataset.b;return}i.value=Math.max(0,(+i.value||0)+d)};
-const ew=()=>{const r=db.run;lanes(r.id).forEach((ln,j)=>{const x=prompt('وزنه'+(ln?' ('+ln+')':'')+' — برای هر سه ست',r.w[j]);if(x&&x.trim())r.w[j]=x.trim()});save();render()};
+const ew=()=>{const r=db.run;lanes(r.id).forEach((ln,j)=>{const x=prompt('Weight'+(ln?' ('+ln+')':'')+' for all 3 sets',r.w[j]);if(x&&x.trim())r.w[j]=x.trim()});save();render()};
 function doneSet(){const r=db.run,L=lanes(r.id),vals=L.map((_,j)=>$('#rp'+j).value.trim());
- if(vals.some(x=>x===''||isNaN(+x)))return alert('تعداد تکرار این ست رو وارد کن');
+ if(vals.some(x=>x===''||isNaN(+x)))return alert('Enter the reps for this set');
  vals.forEach((x,j)=>r.rp[j][r.set]=Math.max(0,Math.round(+x)));
  if(r.set<2){r.ph='rest';r.rt=restOf(r.id);r.re=Date.now()+r.rt*1000;r.fd=0;save();try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();AC.resume()}catch(e){}askN();lock();startTick();render()}
  else finishRun()}
@@ -386,113 +386,113 @@ const skipRest=()=>{const r=db.run;r.fd=1;stopTick();relLock();nextSet()};
 function finishRun(){const r=db.run,id=r.id,e={d:D(),p:r.o=='home'?r.k:'',w:r.w,rp:r.rp,t:Date.now()};e.ok=okReps(id,e);
  db.logs[id]=(db.logs[id]||[]).filter(x=>x.d!=D());db.logs[id].push(e);if(r.o=='home'&&db.sel&&db.sel.id==r.k)db.sel=null;
  db.run=null;stopTick();relLock();save();go('ex',{i:id,k:r.k,a:r.a,o:r.o})}
-const cancelRun=()=>{if(!confirm('این حرکت لغو بشه؟ چیزی ثبت نمیشه.'))return;const r=db.run;db.run=null;stopTick();relLock();save();go('in',{i:r.id,k:r.k,a:r.a,o:r.o})};
+const cancelRun=()=>{if(!confirm('Cancel this exercise? Nothing will be saved.'))return;const r=db.run;db.run=null;stopTick();relLock();save();go('in',{i:r.id,k:r.k,a:r.a,o:r.o})};
 
 // ---------- exercise result page (after finishing)
 function exs(){const id=v.i,e=X(id),l=lst(id),L=lanes(id),M=mx(id);
  let h=hdr('',backEx(),'',dchip());
- h+=`<div class="exh"><div class="exi"><h2 dir="ltr">${e[0]}</h2>${chips(id)}<a class="ytl" href="${YT(id)}" target="_blank" rel="noopener">${YTI}دیدن در یوتیوب</a></div>
+ h+=`<div class="exh"><div class="exi"><h2 dir="ltr">${e[0]}</h2>${chips(id)}<a class="ytl" href="${YT(id)}" target="_blank" rel="noopener">${YTI}Watch on YouTube</a></div>
  <div class="pw"><div id="ph" class="thumb" onclick="pz()">📷</div><button class="gear" onclick="ged('ex')">${GE}</button></div></div>`;
- if(!l)h+=`<div class="hint">هنوز برای این حرکت چیزی ثبت نشده.</div>`;
+ if(!l)h+=`<div class="hint">Nothing logged for this exercise yet.</div>`;
  else if(isN(l)){
-  h+=`<div class="wcard"><div><small>آخرین وزنه · ${fd(l.d)}</small>${L.map((ln,j)=>`<b>${l.w[j]}</b> <span class="mute">kg${ln?' · '+ln:''}</span>`).join('<br>')}</div></div>`;
-  h+=L.map((ln,j)=>`<div class="sec">تکرار در هر ست${ln?' · '+ln:''} · حداکثر ${fn(M)}${side(id)?' (هر طرف)':''}</div><div class="res">${[0,1,2].map(s=>{const x=(l.rp[j]||[])[s];return`<div class="rbx ${x>=M?'g':''}">ست ${fn(s+1)}<b>${x==null?'—':fn(x)}</b></div>`}).join('')}</div>`).join('');
-  h+=l.ok?`<div class="hint ok big">🎉 تعداد تکرارها به حداکثر رسید. دفعه‌ی بعد ${AST.includes(id)?'وزنه‌ی کمکی رو کم کن':'وزنه رو افزایش بده'}.</div>`:`<div class="hint">با همین وزنه ادامه بده تا هر سه ست به ${fn(M)} تکرار برسه.</div>`}
- else h+=`<div class="wcard"><div><small>آخرین ثبت · ${fd(l.d)} · مدل قبلی</small><b style="font-size:20px">${fw(id,l)}</b></div><span class="tag ${l.ok?'up':'w'}">${l.ok?'👍':fn(l.r??'?')+' تکرار'}</span></div>`;
- h+=`<button class="btn pri" onclick="gin()">${tod(id)?'انجام دوباره':'شروع این حرکت'}</button>`;
- if(v.o=='home')h+=`<button class="btn" onclick="tab('home')">برگشت به تمرین امروز</button>`;
+  h+=`<div class="wcard"><div><small>Last weight · ${fd(l.d)}</small>${L.map((ln,j)=>`<b>${l.w[j]}</b> <span class="mute">kg${ln?' · '+ln:''}</span>`).join('<br>')}</div></div>`;
+  h+=L.map((ln,j)=>`<div class="sec">Reps per set${ln?' · '+ln:''} · max ${fn(M)}${side(id)?' (per side)':''}</div><div class="res">${[0,1,2].map(s=>{const x=(l.rp[j]||[])[s];return`<div class="rbx ${x>=M?'g':''}">Set ${fn(s+1)}<b>${x==null?'—':fn(x)}</b></div>`}).join('')}</div>`).join('');
+  h+=l.ok?`<div class="hint ok big">🎉 You hit max reps. Next time, ${AST.includes(id)?'reduce the assist weight':'increase the weight'}.</div>`:`<div class="hint">Keep this weight until all 3 sets reach ${fn(M)} reps.</div>`}
+ else h+=`<div class="wcard"><div><small>Last log · ${fd(l.d)} · old model</small><b style="font-size:20px">${fw(id,l)}</b></div><span class="tag ${l.ok?'up':'w'}">${l.ok?'👍':fn(l.r??'?')+' reps'}</span></div>`;
+ h+=`<button class="btn pri" onclick="gin()">${tod(id)?'Do again':'Start this exercise'}</button>`;
+ if(v.o=='home')h+=`<button class="btn" onclick="tab('home')">Back to today’s workout</button>`;
  return h+histBlock(id)}
 
 // ---------- edit exercise
 function edit(){const id=v.i,e=X(id),m=mus(id),og=(l,t)=>`<optgroup label="${t}">${l.map(a=>`<option value="${a}" ${a==m?'selected':''}>${A[a]}</option>`).join('')}</optgroup>`,mo=[...new Set([6,8,10,12,15,20,25,30,mx(id)])].sort((a,b)=>a-b);
- return hdr('ویرایش حرکت',`go('${v.f||'in'}',${q(ctx())})`)+`<div id="ph" class="thumb big" onclick="$('#pf').click()">📷</div><input id="pf" type="file" accept="image/*" hidden onchange="si('${id}',this.files[0])">
- <div style="display:flex;gap:8px"><button class="btn sm" onclick="$('#pf').click()">تغییر / افزودن عکس</button><button class="btn sm red" onclick="rmi('${id}')">حذف عکس</button></div>
- <a class="gs" target="_blank" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(e[0]+' exercise')}">جستجوی تصویر در گوگل</a>
- <label class="f">اسم حرکت<input id="en" value="${e[0].replace(/"/g,'&quot;')}"></label>
- <label class="f">ماهیچه درگیر<select id="em"><option value="">—</option>${og(MUP,'بالاتنه')}${og(MLO,'پایین‌تنه')}</select></label>
- <label class="f">حداکثر تکرار در هر ست<select id="ex">${mo.map(n=>`<option value="${n}" ${n==mx(id)?'selected':''}>${fn(n)} تکرار</option>`).join('')}</select></label>
- <label class="f">پله‌ی وزنه (کیلو) برای دکمه‌های − و +<input id="es" type="number" inputmode="decimal" step="0.1" value="${stepOf(id)}"></label>
- <button class="btn pri" onclick="se('${id}')">ذخیره</button><button class="btn" onclick="rs('${id}')">بازگردانی مشخصات پیش‌فرض</button>`}
+ return hdr('Edit exercise',`go('${v.f||'in'}',${q(ctx())})`)+`<div id="ph" class="thumb big" onclick="$('#pf').click()">📷</div><input id="pf" type="file" accept="image/*" hidden onchange="si('${id}',this.files[0])">
+ <div style="display:flex;gap:8px"><button class="btn sm" onclick="$('#pf').click()">Change / add photo</button><button class="btn sm red" onclick="rmi('${id}')">Remove photo</button></div>
+ <a class="gs" target="_blank" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(e[0]+' exercise')}">Search images on Google</a>
+ <label class="f">Exercise name<input id="en" value="${e[0].replace(/"/g,'&quot;')}"></label>
+ <label class="f">Target muscle<select id="em"><option value="">—</option>${og(MUP,'Upper body')}${og(MLO,'Lower body')}</select></label>
+ <label class="f">Max reps per set<select id="ex">${mo.map(n=>`<option value="${n}" ${n==mx(id)?'selected':''}>${fn(n)} reps</option>`).join('')}</select></label>
+ <label class="f">Weight step (kg) for − and +<input id="es" type="number" inputmode="decimal" step="0.1" value="${stepOf(id)}"></label>
+ <button class="btn pri" onclick="se('${id}')">Save</button><button class="btn" onclick="rs('${id}')">Restore defaults</button>`}
 const se=id=>{const b=E[id]||db.cx[id];db.ov[id]={n:$('#en').value.trim()||b[0]};db.mu[id]=$('#em').value;const x=+$('#ex').value;if(x&&x!=MXD[id])db.mx[id]=x;else delete db.mx[id];const s=+$('#es').value;if(s>0&&s!=2.5)db.step[id]=s;else delete db.step[id];save();go(v.f||'in',ctx())};
 const rs=id=>{delete db.ov[id];delete db.mu[id];delete db.mx[id];delete db.step[id];delete db.rest[id];save();render()};
 
 // ---------- build program
-function prog(){return hdr('ساخت برنامه','','ترتیب روزها همون ترتیب نوبت تمرینه')+(db.days.length?'':`<div class="hint">هنوز روزی نساختی. با دکمه‌ی پایین اولین روز رو بساز.</div>`)+
- db.days.map((d,j)=>{const n=d.parts.length;return`<div class="li dc"><div class="mv"><button onclick="mv(${j},-1)">▲</button><button onclick="mv(${j},1)">▼</button></div><div onclick="go('day',{k:'${d.id}'})"><b>روز ${fn(j+1)} · ${d.n}</b><small>${fn(n)} بخش: ${d.parts.map(p=>A[p.a]).join('، ')}</small></div><span onclick="go('day',{k:'${d.id}'})">${CH}</span></div>`}).join('')+
- `<button class="btn pri" onclick="nd()">+ روز تمرین جدید</button>`}
+function prog(){return hdr('Program','','Days rotate in this order')+(db.days.length?'':`<div class="hint">No days yet. Create your first one below.</div>`)+
+ db.days.map((d,j)=>{const n=d.parts.length;return`<div class="li dc"><div class="mv"><button onclick="mv(${j},-1)">▲</button><button onclick="mv(${j},1)">▼</button></div><div onclick="go('day',{k:'${d.id}'})"><b>Day ${fn(j+1)} · ${d.n}</b><small>${pl(n,'part')}: ${d.parts.map(p=>A[p.a]).join(', ')}</small></div><span onclick="go('day',{k:'${d.id}'})">${CH}</span></div>`}).join('')+
+ `<button class="btn pri" onclick="nd()">+ New workout day</button>`}
 const mv=(j,d)=>{const k=j+d;if(k<0||k>=db.days.length)return;const a=db.days;[a[j],a[k]]=[a[k],a[j]];save();render(1)};
-const nd=()=>{const n=(prompt('اسم روز تمرین؟ (مثلاً بالاتنه ۳)')||'').trim();if(!n)return;const d={id:'d'+Date.now(),n,parts:[]};db.days.push(d);save();go('day',{k:d.id})};
-const rn=k=>{const d=dy(k),n=(prompt('اسم جدید',d.n)||'').trim();if(n){d.n=n;save();render()}};
-const dl=k=>{if(confirm('این روز حذف بشه؟ تاریخچه‌ی حرکت‌ها حفظ میشه.')){db.days=db.days.filter(d=>d.id!=k);save();go('prog')}};
+const nd=()=>{const n=(prompt('Workout day name? (e.g. Upper body 3)')||'').trim();if(!n)return;const d={id:'d'+Date.now(),n,parts:[]};db.days.push(d);save();go('day',{k:d.id})};
+const rn=k=>{const d=dy(k),n=(prompt('New name',d.n)||'').trim();if(n){d.n=n;save();render()}};
+const dl=k=>{if(confirm('Delete this day? Exercise history is kept.')){db.days=db.days.filter(d=>d.id!=k);save();go('prog')}};
 const ap=(k,a)=>{const d=dy(k);if(!d.parts.some(p=>p.a==a))d.parts.push({a,ex:[...(DEF[a]||[])].filter(i=>pool(a).includes(i))});save();go('pick',{k,a})};
-const rp=(k,a)=>{if(confirm('«'+A[a]+'» از این روز حذف بشه؟')){const d=dy(k);d.parts=d.parts.filter(p=>p.a!=a);save();render(1)}};
+const rp=(k,a)=>{if(confirm('Remove "'+A[a]+'" from this day?')){const d=dy(k);d.parts=d.parts.filter(p=>p.a!=a);save();render(1)}};
 const pm=(k,j,dd)=>{const p=dy(k).parts,x=j+dd;if(x<0||x>=p.length)return;[p[j],p[x]]=[p[x],p[j]];save();render(1)};
 const tx=(k,a,i)=>{const p=dy(k).parts.find(p=>p.a==a),j=p.ex.indexOf(i);j<0?p.ex.push(i):p.ex.splice(j,1);save();render(1)};
 function day(){const k=v.k,d=dy(k);if(!d)return prog();const j=db.days.indexOf(d);
- return hdr(d.n,`go('prog')`,'روز '+fn(j+1)+' · '+fn(d.parts.length)+' بخش')+`<div class="hint">حرکت‌های هر بخش به نوبت پیشنهاد میشن: اول اونایی که هنوز نزدی، بعد اونی که از آخرین بارش بیشتر گذشته.</div>`+
- d.parts.map((p,x)=>`<div class="card"><div class="gh"><div class="mv" style="display:flex;flex-direction:column;gap:3px"><button class="mini" style="padding:1px 8px" onclick="pm('${k}',${x},-1)">▲</button><button class="mini" style="padding:1px 8px" onclick="pm('${k}',${x},1)">▼</button></div><b>${A[p.a]}</b><button class="mini" onclick="go('pick',{k:'${k}',a:'${p.a}'})">ویرایش حرکات</button><button class="mini x" onclick="rp('${k}','${p.a}')">حذف</button></div>`+
- (p.ex.length?p.ex.map((i,n)=>`<div class="ex"><span class="ord">${fn(n+1)}</span><b dir="ltr" style="text-align:right">${X(i)[0]}</b></div>`).join(''):`<div class="ex"><small class="mute">حرکتی انتخاب نشده</small></div>`)+`</div>`).join('')+
- `<button class="btn pri" onclick="go('parts',{k:'${k}'})">+ بخش بدن</button><button class="btn" onclick="rn('${k}')">تغییر نام روز</button><button class="btn red" onclick="dl('${k}')">حذف روز</button>`}
+ return hdr(d.n,`go('prog')`,'Day '+fn(j+1)+' · '+pl(d.parts.length,'part'))+`<div class="hint">Exercises in each part are suggested in rotation: first the ones you haven’t done, then the one done longest ago.</div>`+
+ d.parts.map((p,x)=>`<div class="card"><div class="gh"><div class="mv" style="display:flex;flex-direction:column;gap:3px"><button class="mini" style="padding:1px 8px" onclick="pm('${k}',${x},-1)">▲</button><button class="mini" style="padding:1px 8px" onclick="pm('${k}',${x},1)">▼</button></div><b>${A[p.a]}</b><button class="mini" onclick="go('pick',{k:'${k}',a:'${p.a}'})">Edit exercises</button><button class="mini x" onclick="rp('${k}','${p.a}')">Delete</button></div>`+
+ (p.ex.length?p.ex.map((i,n)=>`<div class="ex"><span class="ord">${fn(n+1)}</span><b dir="ltr" style="text-align:left">${X(i)[0]}</b></div>`).join(''):`<div class="ex"><small class="mute">No exercise selected</small></div>`)+`</div>`).join('')+
+ `<button class="btn pri" onclick="go('parts',{k:'${k}'})">+ Body part</button><button class="btn" onclick="rn('${k}')">Rename day</button><button class="btn red" onclick="dl('${k}')">Delete day</button>`}
 function parts(){const k=v.k,d=dy(k),has=a=>d.parts.some(p=>p.a==a);
- return hdr('افزودن بخش بدن',`go('day',{k:'${k}'})`)+[['بالاتنه',PUP],['پایین‌تنه',PLO]].map(([t,l])=>`<div class="sec">${t}</div>`+l.map(a=>`<button class="chip ${has(a)?'on':''}" onclick="ap('${k}','${a}')">${A[a]}</button>`).join('')).join('')}
+ return hdr('Add body part',`go('day',{k:'${k}'})`)+[['Upper body',PUP],['Lower body',PLO]].map(([t,l])=>`<div class="sec">${t}</div>`+l.map(a=>`<button class="chip ${has(a)?'on':''}" onclick="ap('${k}','${a}')">${A[a]}</button>`).join('')).join('')}
 function pick(){const{k,a}=v,p=dy(k).parts.find(p=>p.a==a);if(!p)return day();
- return hdr(A[a],`go('day',{k:'${k}'})`,'حرکت‌هایی که به نوبت پیشنهاد بشن')+`<div class="hint">هر حرکتی که می‌خوای توی نوبت این بخش باشه رو تیک بزن. شماره‌ها ترتیب نوبت رو نشون میدن.</div>`+
- pool(a).map(i=>{const n=p.ex.indexOf(i);return`<button class="li" onclick="tx('${k}','${a}','${i}')"><span class="ck ${n>=0?'on':''}">${n>=0?fn(n+1):''}</span><div><b dir="ltr" style="text-align:right">${X(i)[0]}</b><small dir="ltr" style="text-align:right">${logTxt(i,lst(i))}</small></div></button>`}).join('')+
- `<button class="btn" onclick="go('add',{k:'${k}',a:'${a}'})">+ حرکت جدید برای این بخش</button>`}
+ return hdr(A[a],`go('day',{k:'${k}'})`,'Exercises in the rotation')+`<div class="hint">Tick every exercise you want in this part’s rotation. Numbers show the order.</div>`+
+ pool(a).map(i=>{const n=p.ex.indexOf(i);return`<button class="li" onclick="tx('${k}','${a}','${i}')"><span class="ck ${n>=0?'on':''}">${n>=0?fn(n+1):''}</span><div><b dir="ltr" style="text-align:left">${X(i)[0]}</b><small dir="ltr" style="text-align:left">${logTxt(i,lst(i))}</small></div></button>`}).join('')+
+ `<button class="btn" onclick="go('add',{k:'${k}',a:'${a}'})">+ New exercise for this part</button>`}
 
 // ---------- exercise library
 const nz=s=>(s||'').toLowerCase().replace(/[‌\s]/g,'').replace(/ي/g,'ی').replace(/ك/g,'ک');
 const lrows=s=>{s=nz(s);return ids().filter(i=>nz(X(i)[0]+arn(i)+tier(i)+(A[mus(i)]||'')).includes(s)).map(i=>{const l=lst(i);
- return`<button class="li" onclick='go("in",{i:"${i}",o:"lib",q:${q(v.q||'')}})'><span class="dot ${tier(i)=='بالاتنه'?'':'lo'}"></span><div><b dir="ltr" style="text-align:right">${X(i)[0]}</b><small>${arn(i)} · ${tier(i)}</small></div><span class="dt">${l?fd(l.d).replace(/^[^ ]+ /,''):'ثبت نشده'}</span></button>`}).join('')||'<div class="empty">حرکتی پیدا نشد</div>'};
+ return`<button class="li" onclick='go("in",{i:"${i}",o:"lib",q:${q(v.q||'')}})'><span class="dot ${tier(i)=='Upper body'?'':'lo'}"></span><div><b dir="ltr" style="text-align:left">${X(i)[0]}</b><small>${arn(i)} · ${tier(i)}</small></div><span class="dt">${l?fd(l.d).replace(/^[^ ]+ /,''):'Not logged'}</span></button>`}).join('')||'<div class="empty">No exercises found</div>'};
 const lq=s=>{v.q=s;$('#ll').innerHTML=lrows(s)};
-const lib=()=>hdr('حرکات','',fn(ids().length)+' حرکت')+`<div class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="qq" placeholder="اسم حرکت، بخش بدن، بالاتنه یا پایین‌تنه" value="${(v.q||'').replace(/"/g,'')}" oninput="lq(this.value)"></div><div id="ll">${lrows(v.q)}</div><button class="btn pri" onclick="go('add')">+ حرکت جدید</button>`;
+const lib=()=>hdr('Exercises','',pl(ids().length,'exercise'))+`<div class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="qq" placeholder="Name, body part, upper or lower body" value="${(v.q||'').replace(/"/g,'')}" oninput="lq(this.value)"></div><div id="ll">${lrows(v.q)}</div><button class="btn pri" onclick="go('add')">+ New exercise</button>`;
 function add(){const og=(l,t)=>`<optgroup label="${t}">${l.map(a=>`<option value="${a}" ${a==v.a?'selected':''}>${A[a]}</option>`).join('')}</optgroup>`;
- return hdr('حرکت جدید',v.k?`go('pick',{k:'${v.k}',a:'${v.a}'})`:`go('lib')`)+`<label class="f">بخش بدن<select id="ar">${og(PUP,'بالاتنه')}${og(PLO,'پایین‌تنه')}</select></label><label class="f">اسم حرکت<input id="nm"></label>
- <label class="f">نوع<select id="md"><option value="3">یک وزنه</option><option value="f">دو وزنه (جلو و پشت)</option></select></label>
- <label class="f">حداکثر تکرار در هر ست<select id="mxr">${[6,8,10,12,15,20,25,30].map(n=>`<option value="${n}" ${n==12?'selected':''}>${fn(n)} تکرار</option>`).join('')}</select></label>
- <label class="f" style="display:flex;align-items:center;gap:10px"><input id="sd" type="checkbox" style="width:22px;height:22px;margin:0">تکرارها برای هر طرف جداست</label><button class="btn pri" onclick="addx()">افزودن</button>`}
-function addx(){const n=$('#nm').value.trim();if(!n)return alert('اسم حرکت رو بنویس');const id='c'+Date.now(),a=$('#ar').value;db.cx[id]=[n,a,$('#md').value,$('#sd').checked?1:0];db.mx[id]=+$('#mxr').value;db.mu[id]=a=='fa'?'ff':a;
+ return hdr('New exercise',v.k?`go('pick',{k:'${v.k}',a:'${v.a}'})`:`go('lib')`)+`<label class="f">Body part<select id="ar">${og(PUP,'Upper body')}${og(PLO,'Lower body')}</select></label><label class="f">Exercise name<input id="nm"></label>
+ <label class="f">Type<select id="md"><option value="3">One weight</option><option value="f">Two weights (front & back)</option></select></label>
+ <label class="f">Max reps per set<select id="mxr">${[6,8,10,12,15,20,25,30].map(n=>`<option value="${n}" ${n==12?'selected':''}>${fn(n)} reps</option>`).join('')}</select></label>
+ <label class="f" style="display:flex;align-items:center;gap:10px"><input id="sd" type="checkbox" style="width:22px;height:22px;margin:0">Reps are counted per side</label><button class="btn pri" onclick="addx()">Add</button>`}
+function addx(){const n=$('#nm').value.trim();if(!n)return alert('Enter an exercise name');const id='c'+Date.now(),a=$('#ar').value;db.cx[id]=[n,a,$('#md').value,$('#sd').checked?1:0];db.mx[id]=+$('#mxr').value;db.mu[id]=a=='fa'?'ff':a;
  db.days.forEach(d=>d.parts.forEach(p=>{if(pool(p.a).includes(id)&&!p.ex.includes(id))p.ex.push(id)}));save();v.k?go('pick',{k:v.k,a:v.a}):go('lib')}
 
 // ---------- history & settings
 const grp=src=>{const g={};for(const i in src)src[i].forEach(e=>(g[e.d]=g[e.d]||[]).push([i,e]));return g};
 let HO={};const th=k=>{HO[k]=!HO[k];render(1)};
 const dayList=(src,pre)=>{const g=grp(src),ks=Object.keys(g).sort().reverse();return ks.map(d=>{const L=g[d],p=L.map(x=>x[1].p).find(x=>dy(x)),dn=p&&dy(p),k=pre+d,op=HO[k];
- return`<div class="part ${op?'open':''}"><div class="ph"><button class="pmain" onclick="th('${k}')"><span class="num">${fn(+d.slice(8))}</span><div class="pt"><b>${fd(d)}</b><small>${dn?dn.n+' · ':''}${fn(L.length)} حرکت</small></div></button><button class="swap" onclick="th('${k}')">${CH}</button></div>
- <div class="pl">${L.map(([i,e])=>`<div class="row"><div onclick='go("ex",{i:"${i}",o:"lib"})'><b dir="ltr">${X(i)[0]}</b><small dir="ltr">${logTxt(i,e)}</small></div>${e.ok?'<span class="tag up">👍</span>':''}<button class="mini x" onclick="delRec('${pre}','${i}','${d}')">حذف</button></div>`).join('')}<button class="more" style="color:#c0392b" onclick="delDay('${pre}','${d}')">حذف همه‌ی رکوردهای این روز</button></div></div>`}).join('')};
+ return`<div class="part ${op?'open':''}"><div class="ph"><button class="pmain" onclick="th('${k}')"><span class="num">${fn(+d.slice(8))}</span><div class="pt"><b>${fd(d)}</b><small>${dn?dn.n+' · ':''}${pl(L.length,'exercise')}</small></div></button><button class="swap" onclick="th('${k}')">${CH}</button></div>
+ <div class="pl">${L.map(([i,e])=>`<div class="row"><div onclick='go("ex",{i:"${i}",o:"lib"})'><b dir="ltr">${X(i)[0]}</b><small dir="ltr">${logTxt(i,e)}</small></div>${e.ok?'<span class="tag up">👍</span>':''}<button class="mini x" onclick="delRec('${pre}','${i}','${d}')">Delete</button></div>`).join('')}<button class="more" style="color:#c0392b" onclick="delDay('${pre}','${d}')">Delete all records for this day</button></div></div>`}).join('')};
 const SRC=pre=>pre=='a'?db.arch:db.logs;
-const delRec=(pre,id,d)=>{const s=SRC(pre);if(!confirm('رکورد «'+X(id)[0]+'» در '+fd(d)+' پاک بشه؟ این کار برگشت نداره.'))return;s[id]=(s[id]||[]).filter(e=>e.d!=d);if(!s[id].length)delete s[id];save();render(1)};
-const delDay=(pre,d)=>{const s=SRC(pre),n=Object.keys(s).filter(i=>s[i].some(e=>e.d==d)).length;if(!confirm('همه‌ی '+fn(n)+' رکورد '+fd(d)+' پاک بشن؟ این کار برگشت نداره.'))return;for(const i in s){s[i]=s[i].filter(e=>e.d!=d);if(!s[i].length)delete s[i]}delete HO[pre+d];save();render(1)};
+const delRec=(pre,id,d)=>{const s=SRC(pre);if(!confirm('Delete the record for "'+X(id)[0]+'" on '+fd(d)+'? This can\'t be undone.'))return;s[id]=(s[id]||[]).filter(e=>e.d!=d);if(!s[id].length)delete s[id];save();render(1)};
+const delDay=(pre,d)=>{const s=SRC(pre),n=Object.keys(s).filter(i=>s[i].some(e=>e.d==d)).length;if(!confirm('Delete '+(n==1?'the record':'all '+n+' records')+' on '+fd(d)+'? This can\'t be undone.'))return;for(const i in s){s[i]=s[i].filter(e=>e.d!=d);if(!s[i].length)delete s[i]}delete HO[pre+d];save();render(1)};
 function hist(){const n=Object.keys(grp(db.logs)).length;
- return hdr('تاریخچه','',fn(n)+' روز تمرین')+(n?'':'<div class="empty">هنوز رکوردی ثبت نشده</div>')+dayList(db.logs,'h')+(Object.keys(db.arch).length?`<button class="btn" onclick="go('arch')">سوابق قدیمی</button>`:'')}
-const arch=()=>hdr('سوابق قدیمی',`tab('hist')`,'مدل قبلی: وزنه‌ی متفاوت در هر ست')+dayList(db.arch,'a');
-function sett(){return hdr('تنظیمات')+`<div class="card"><b>پشتیبان‌گیری</b><small style="display:block">آخرین پشتیبان: ${db.bk?fd(db.bk):'هنوز نگرفتی'}</small></div>
- <button class="btn pri" onclick="exp()">خروجی گرفتن (پشتیبان)</button><button class="btn" onclick="$('#f').click()">برگردوندن اطلاعات از فایل</button>
+ return hdr('History','',pl(n,'workout day'))+(n?'':'<div class="empty">No records yet</div>')+dayList(db.logs,'h')+(Object.keys(db.arch).length?`<button class="btn" onclick="go('arch')">Old records</button>`:'')}
+const arch=()=>hdr('Old records',`tab('hist')`,'Old model: different weight per set')+dayList(db.arch,'a');
+function sett(){return hdr('Settings')+`<div class="card"><b>Backup</b><small style="display:block">Last backup: ${db.bk?fd(db.bk):'never'}</small></div>
+ <button class="btn pri" onclick="exp()">Export backup</button><button class="btn" onclick="$('#f').click()">Restore from file</button>
  <input id="f" type="file" accept=".json,application/json" hidden onchange="imp(this.files[0])">
- <div class="sec">تایمر استراحت</div><div class="card"><b>زمان استراحت پیش‌فرض</b><small style="display:block">برای حرکت‌هایی که توی صفحه‌ی خودشون زمان دیگه‌ای انتخاب نکردی.</small>
- <div class="restrow" style="margin:10px 0 0"><label style="box-shadow:none;padding:0;background:none">استراحت<select onchange="db.rdef=+this.value;save()">${RO.map(s=>`<option value="${s}" ${s==(+db.rdef||120)?'selected':''}>${fn(s)} ثانیه</option>`).join('')}</select></label></div></div>
- <div class="sec">برنامه</div><button class="btn" onclick="rdef()">بازگردانی برنامه‌ی پیش‌فرض ۴ روزه</button><button class="btn red" onclick="rall()">بازگشت همه‌ی بخش‌ها به حالت پیش‌فرض</button>
- <p class="mute" style="text-align:center;margin-top:18px;font-size:12px">Gym Log · نسخه ۱۵ · داده‌ها فقط روی همین گوشی ذخیره میشن</p>`}
-const rall=()=>{if(!confirm('همه‌ی بخش‌های اپ به حالت پیش‌فرض برگردن؟\n\n• برنامه‌ی ۴ روزه‌ی پیش‌فرض\n• اسم، ماهیچه، حداکثر تکرار، پله‌ی وزنه و زمان استراحت همه‌ی حرکت‌ها\n• حرکت‌هایی که خودت ساختی و رکوردی ندارن حذف میشن\n\nرکوردها، سوابق قدیمی و عکس‌ها حفظ میشن.'))return;
+ <div class="sec">Rest timer</div><div class="card"><b>Default rest time</b><small style="display:block">Used for exercises where you haven’t picked a different time.</small>
+ <div class="restrow" style="margin:10px 0 0"><label style="box-shadow:none;padding:0;background:none">Rest<select onchange="db.rdef=+this.value;save()">${RO.map(s=>`<option value="${s}" ${s==(+db.rdef||120)?'selected':''}>${fn(s)} sec</option>`).join('')}</select></label></div></div>
+ <div class="sec">Program</div><button class="btn" onclick="rdef()">Restore default 4-day program</button><button class="btn red" onclick="rall()">Reset everything to defaults</button>
+ <p class="mute" style="text-align:center;margin-top:18px;font-size:12px">Gym Log · Version 16 · data is stored only on this phone</p>`}
+const rall=()=>{if(!confirm('Reset every part of the app to defaults?\n\n• Default 4-day program\n• Name, muscle, max reps, weight step and rest time of every exercise\n• Exercises you created that have no records are deleted\n\nRecords, old records and photos are kept.'))return;
  stopTick();relLock();db.days=defDays();db.ov={};db.mu={};db.mx={};db.step={};db.rest={};db.rdef=120;db.sel=null;db.run=null;
  for(const id in db.cx)if(!(db.logs[id]||[]).length&&!(db.arch[id]||[]).length)delete db.cx[id];
  db.days.forEach(d=>d.parts.forEach(p=>Object.keys(db.cx).filter(i=>i[0]=='c'&&pool(p.a).includes(i)).forEach(i=>{if(!p.ex.includes(i))p.ex.push(i)})));
  HO={};OLDX=null;save();tab('home')};
-const rdef=()=>{if(confirm('روزهای تمرین با برنامه‌ی پیش‌فرض ۴ روزه جایگزین بشن؟ تاریخچه‌ی وزنه‌ها حفظ میشه.')){db.days=defDays();db.sel=null;save();tab('home')}};
+const rdef=()=>{if(confirm('Replace your workout days with the default 4-day program? Your history is kept.')){db.days=defDays();db.sel=null;save();tab('home')}};
 async function exp(){const b=new Blob([JSON.stringify(db)],{type:'application/json'}),n='gym-backup-'+D()+'.json',f=new File([b],n,{type:'application/json'});
  if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f]})}catch(e){return}}else{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;a.click()}
  db.bk=D();save();render()}
-function imp(f){if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.logs)throw 0;if(confirm('اطلاعات فعلی با فایل جایگزین بشه؟')){db=migrate(x);save();tab('home')}}catch(e){alert('فایل معتبر نیست')}};r.readAsText(f)}
+function imp(f){if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.logs)throw 0;if(confirm('Replace current data with this file?')){db=migrate(x);save();tab('home')}}catch(e){alert('Invalid file')}};r.readAsText(f)}
 
 // ---------- photos (stored on the phone)
 const idb=()=>new Promise(r=>{try{const o=indexedDB.open('gymimg',1);o.onupgradeneeded=()=>o.result.createObjectStore('i');o.onsuccess=()=>r(o.result);o.onerror=()=>r(null)}catch(e){r(null)}});
 const gi=async id=>{const d=await idb();return d?new Promise(r=>{const o=d.transaction('i').objectStore('i').get(id);o.onsuccess=()=>r(o.result);o.onerror=()=>r()}):0};
 let PH='';
-const ph=u=>{PH=u||'';const p=$('#ph');if(p){p.style.backgroundImage=u?'url('+u+')':'';p.innerHTML=u?'':p.classList.contains('pbig')?'<span>📷</span><small>افزودن عکس</small>':'📷'}};
+const ph=u=>{PH=u||'';const p=$('#ph');if(p){p.style.backgroundImage=u?'url('+u+')':'';p.innerHTML=u?'':p.classList.contains('pbig')?'<span>📷</span><small>Add photo</small>':'📷'}};
 const pz=()=>{if(!PH)return ged(v.s);const o=document.createElement('div');o.className='fs';o.innerHTML='<img src="'+PH+'">';o.onclick=()=>o.remove();document.body.appendChild(o)};
 const rmi=async id=>{const d=await idb();if(d)d.transaction('i','readwrite').objectStore('i').delete(id);ph('')};
 async function si(id,f){if(!f)return;try{const im=await createImageBitmap(f),c=document.createElement('canvas'),k=Math.min(1,900/Math.max(im.width,im.height));c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);
- const u=c.toDataURL('image/jpeg',.82),d=await idb();d.transaction('i','readwrite').objectStore('i').put(u,id);ph(u)}catch(e){alert('ذخیره‌ی عکس نشد')}}
+ const u=c.toDataURL('image/jpeg',.82),d=await idb();d.transaction('i','readwrite').objectStore('i').put(u,id);ph(u)}catch(e){alert('Couldn’t save the photo')}}
 
 // ---------- rest timer between sets (sound + vibration + notification)
 let TI=0,AC=null,WL=null;
@@ -501,7 +501,7 @@ const lock=async()=>{try{if(navigator.wakeLock){if(WL)WL.release().catch(()=>{})
 const relLock=()=>{try{if(WL){WL.release();WL=null}}catch(e){}};
 const beep=()=>{try{[0,.35,.7].forEach(d=>{const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime+d;o.frequency.value=880;o.connect(g);g.connect(AC.destination);g.gain.setValueAtTime(.4,t);g.gain.exponentialRampToValueAtTime(.001,t+.25);o.start(t);o.stop(t+.3)})}catch(e){}};
 const fin=async n=>{beep();try{navigator.vibrate&&navigator.vibrate([200,100,200])}catch(e){}relLock();
- try{if('Notification' in window&&Notification.permission=='granted'){const r=navigator.serviceWorker&&await navigator.serviceWorker.getRegistration(),o={body:'ست '+SN[n]+' رو شروع کن',tag:'rest',renotify:true};r?r.showNotification('تایم استراحت تموم شد',o):new Notification('تایم استراحت تموم شد',o)}}catch(e){}};
+ try{if('Notification' in window&&Notification.permission=='granted'){const r=navigator.serviceWorker&&await navigator.serviceWorker.getRegistration(),o={body:'Start set '+SN[n],tag:'rest',renotify:true};r?r.showNotification('Rest is over',o):new Notification('Rest is over',o)}}catch(e){}};
 const startTick=()=>{if(!TI)TI=setInterval(rtick,100)},stopTick=()=>{if(TI){clearInterval(TI);TI=0}};
 function rtick(){const r=db.run;if(!r||r.ph!='rest'){stopTick();return}const left=r.re-Date.now();
  if(left>0){if(v.s=='run'){const g=$('#rr'),n=$('#rn');if(g)g.style.strokeDashoffset=RC2*(1-left/(r.rt*1000));const s=Math.ceil(left/1000);if(n&&n.dataset.s!=s){n.dataset.s=s;n.textContent=tf(s);n.classList.remove('tickp');void n.offsetWidth;n.classList.add('tickp')}}}
@@ -510,7 +510,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&db.run&&d
 
 // ---------- shell
 const IC={home:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',prog:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4v2h6V4M12 10v6M9 13h6"/>',lib:'<path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/>',hist:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',set:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>'};
-const TABS=[['home','تمرین'],['prog','ساخت برنامه'],['lib','حرکات'],['hist','تاریخچه'],['set','تنظیمات']];
+const TABS=[['home','Workout'],['prog','Program'],['lib','Exercises'],['hist','History'],['set','Settings']];
 function render(keep){const y=keep&&$('main')?$('main').scrollTop:0,s=v.s,m={arch,home,prog,hist,lib,set:sett,add,edit,ex:exs,in:intro,run,day,parts,pick};
  if(['ex','edit','in','run'].includes(s))v.tab=v.o=='home'?'home':v.o=='lib'?'lib':'prog';
  $('#app').innerHTML=`<main>${(m[s]||home)()}</main><nav>${TABS.map(([k,t])=>`<button class="${v.tab==k?'on':''}" onclick="tab('${k}')"><svg viewBox="0 0 24 24">${IC[k]}</svg>${t}</button>`).join('')}</nav>`;
